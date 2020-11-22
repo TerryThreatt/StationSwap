@@ -1,5 +1,6 @@
 class Employee < ApplicationRecord
     has_one :laptop
-    validates :name, :email, :password, presence: true
+    has_secure_password
+    validates :name, :email, :password_digest, presence: true
 
 end
