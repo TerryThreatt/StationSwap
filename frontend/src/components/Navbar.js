@@ -1,19 +1,24 @@
 import React from 'react'
-import {AppBar, Typography, Button, Toolbar, IconButton} from '@material-ui/core'
+import {Navbar as Navi, NavbarBrand, NavLink, NavItem, Nav} from 'reactstrap'
+
 
 const Navbar = () => {
     return (
         <div>
-            <AppBar position="static">
+            {/* <AppBar position="static" bgcolor="253053">
                 <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="menu">
-                </IconButton>
-                <Typography variant="h6" >
-                StationSwap
-                </Typography>
-                <Button color="inherit">Login</Button>
-            </Toolbar>
-            </AppBar>
+                    <Typography variant="h7">StationSwap</Typography>
+                    <Button color="inherit" position="right">Login</Button>
+                </Toolbar>
+            </AppBar> */}
+            <Navi bg-color="253053" light expand="md">
+                <NavbarBrand href="/">StationSwap</NavbarBrand>
+                <Nav className="mr-auto" navbar>
+                    <NavItem>
+                    <NavLink href="/components/">Login</NavLink>
+                    </NavItem>
+                </Nav>
+            </Navi>
         </div>
     )
 }
