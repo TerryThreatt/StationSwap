@@ -15,7 +15,7 @@ const Navbar = () => {
                 <NavbarBrand href="/">StationSwap</NavbarBrand>
                 <Nav className="mr-auto" navbar>
                     <NavItem>
-                    <NavLink href="/components/">Login</NavLink>
+                    <NavLink href="/signin">Login</NavLink>
                     </NavItem>
                 </Nav>
             </Navi>
