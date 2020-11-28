@@ -5,11 +5,13 @@ import Sidebar from './Sidebar'
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="dashboard">
             <Navbar />
             <Sidebar/>
             <br/>
+            <div className="container">
             Dashboard
+            </div>
         </div>
     )
 }
