@@ -5,17 +5,11 @@ import {Navbar as Navi, NavbarBrand, NavLink, NavItem, Nav} from 'reactstrap'
 const Navbar = () => {
     return (
         <div>
-            {/* <AppBar position="static" bgcolor="253053">
-                <Toolbar>
-                    <Typography variant="h7">StationSwap</Typography>
-                    <Button color="inherit" position="right">Login</Button>
-                </Toolbar>
-            </AppBar> */}
-            <Navi bg-color="253053" light expand="md">
+            <Navi color="info" dark lg >
                 <NavbarBrand href="/">StationSwap</NavbarBrand>
-                <Nav className="mr-auto" navbar>
+                <Nav float-right navbar>
                     <NavItem>
-                    <NavLink href="/signin">Login</NavLink>
+                    <NavLink href="/signin" >Login</NavLink>
                     </NavItem>
                 </Nav>
             </Navi>
