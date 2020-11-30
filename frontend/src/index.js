@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -18,9 +18,9 @@ let rootReducer = combineReducers({
   rentals: rentalReducer
 })
 
-let enhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+let enhancers = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-let store = createStore(rootReducer, enhancers, applyMiddleware(thunk))
+let store = createStore(rootReducer, enhancers)
 
 ReactDOM.render(
   <Provider store={store}>

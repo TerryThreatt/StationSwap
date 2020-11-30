@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import Employee from './employee/Employee'
 import Employees from './employee/Employees'
-
+import NavInput from './NavInput'
 
 
 class Dashboard extends Component {
@@ -19,7 +19,7 @@ class Dashboard extends Component {
                 <NavBar />
                 <Switch>
                     <Route path="/signup"/>
-                    <Route path="/signin"/>
+                    <Route path="/signin"/ component={NavInput}>
                     <Route path="/employees/:id" render={(routerProps) => <Employee employees={this.props.employees}/>}/>
                     <Route path="/employees" render={(routerProps) => <Employees employees={this.props.employees}/> } />
                 </Switch>
