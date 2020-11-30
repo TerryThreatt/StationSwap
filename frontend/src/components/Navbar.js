@@ -2,7 +2,7 @@ import React from 'react'
 import {Navbar as Navi, NavbarBrand, NavLink, NavItem, Nav} from 'reactstrap'
 
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <div>
             <Navi color="info" dark lg >
@@ -17,4 +17,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavBar
