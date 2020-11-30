@@ -1,4 +1,4 @@
-export default function laptopReducer(state = {accounts: []}, action) {
+export default function laptopReducer(state = {laptops: []}, action) {
     switch(action.type){
         default:
         return state

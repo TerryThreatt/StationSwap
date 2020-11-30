@@ -5,12 +5,13 @@ import { Route, Switch } from 'react-router-dom'
 import Employee from './employee/Employee'
 import Employees from './employee/Employees'
 import NavInput from './NavInput'
+import { getEmployees } from '../actions/getEmployees'
 
 
 class Dashboard extends Component {
 
     componentDidMount() {
-
+        this.props.getEmployees()
     }
 
     render() {
@@ -18,8 +19,8 @@ class Dashboard extends Component {
             <div className="dashboard">
                 <NavBar />
                 <Switch>
-                    <Route path="/signup"/>
-                    <Route path="/signin"/ component={NavInput}>
+                    <Route path="/signup" component={NavInput} />
+                    <Route path="/signin" component={NavInput}/>
                     <Route path="/employees/:id" render={(routerProps) => <Employee employees={this.props.employees}/>}/>
                     <Route path="/employees" render={(routerProps) => <Employees employees={this.props.employees}/> } />
                 </Switch>
@@ -35,4 +36,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps, {getEmployees})(Dashboard)
