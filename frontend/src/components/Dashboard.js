@@ -8,10 +8,10 @@ import NavInput from './NavInput'
 import { getEmployees } from '../actions/getEmployees'
 
 
+
 class Dashboard extends Component {
 
     componentDidMount() {
-        this.props.getEmployees()
     }
 
     render() {
@@ -24,15 +24,13 @@ class Dashboard extends Component {
                     <Route path="/employees/:id" render={(routerProps) => <Employee {...routerProps} employees={this.props.employees}/>}/>
                     <Route exact path="/employees" render={(routerProps) => <Employees {...routerProps} employees={this.props.employees}/> } />
                 </Switch>
+                <br/>
+                <br/>
+                StationSwap - Laptop rental app for remote teams
+
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        employees: state.employees
-    }
-}
-
-export default connect(mapStateToProps, { getEmployees })(Dashboard)
+export default Dashboard

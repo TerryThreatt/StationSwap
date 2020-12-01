@@ -1,10 +1,10 @@
 import React from 'react'
-import LaptopsContainer from '.../containers/LaptopsContainer'
-import RentalsContainer from '.../containers/RentalsContainer'
+import LaptopsContainer from '../../containers/LaptopsContainer'
+import RentalsContainer from '../../containers/RentalsContainer'
 
 const Employee = props => {
 
-    let employee = props.employees.filter(employee => employee.id == props.match.params.id)[0]
+    let employee = props.employees.filter(employee => employee.id === props.match.params.id)[0]
 
     return(
         <div>
