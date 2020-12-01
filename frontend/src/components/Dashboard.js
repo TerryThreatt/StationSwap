@@ -21,8 +21,8 @@ class Dashboard extends Component {
                 <Switch>
                     <Route path="/signup" component={NavInput} />
                     <Route path="/signin" component={NavInput}/>
-                    <Route path="/employees/:id" render={(routerProps) => <Employee employees={this.props.employees}/>}/>
-                    <Route exact path="/employees" render={(routerProps) => <Employees employees={this.props.employees}/> } />
+                    <Route path="/employees/:id" render={(routerProps) => <Employee {...routerProps} employees={this.props.employees}/>}/>
+                    <Route exact path="/employees" render={(routerProps) => <Employees {...routerProps} employees={this.props.employees}/> } />
                 </Switch>
             </div>
         )
