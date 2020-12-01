@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_213740) do
+ActiveRecord::Schema.define(version: 2020_12_01_001033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,12 @@ ActiveRecord::Schema.define(version: 2020_11_26_213740) do
     t.bigint "laptop", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_number"], name: "index_rentals_on_employee_number"
-    t.index ["laptop"], name: "index_rentals_on_laptop"
+    t.bigint "employee_id"
+    t.bigint "laptop_id"
+    t.index ["employee_id"], name: "index_rentals_on_employee_id"
+    t.index ["laptop_id"], name: "index_rentals_on_laptop_id"
   end
 
-  add_foreign_key "rentals", "employees", column: "employee_number"
-  add_foreign_key "rentals", "laptops", column: "laptop"
+  add_foreign_key "rentals", "employees"
+  add_foreign_key "rentals", "laptops"
 end

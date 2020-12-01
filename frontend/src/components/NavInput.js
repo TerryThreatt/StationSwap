@@ -44,4 +44,4 @@ class NavInput extends Component {
     }
 }
 
-export default connect(null, {addEmployee})(NavInput)
+export default connect(null, { addEmployee })(NavInput)

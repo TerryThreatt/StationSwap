@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :update, :destroy]
-  before_action :authenticate_employee, except: [:create]
+  before_action :authenticate_employee, except: [:create, :index]
+  wrap_parameters :employee, include: [:name, :email, :password]
 
   def index
     @employees = Employee.all
@@ -40,6 +41,6 @@ class EmployeesController < ApplicationController
     end
 
     def employee_params
-      params.require(:employee).permit(:name, :email, :password, :employee_number)
+      params.require(:employee).permit(:name, :email, :password)
     end
 end

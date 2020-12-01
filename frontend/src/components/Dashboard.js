@@ -22,9 +22,8 @@ class Dashboard extends Component {
                     <Route path="/signup" component={NavInput} />
                     <Route path="/signin" component={NavInput}/>
                     <Route path="/employees/:id" render={(routerProps) => <Employee employees={this.props.employees}/>}/>
-                    <Route path="/employees" render={(routerProps) => <Employees employees={this.props.employees}/> } />
+                    <Route exact path="/employees" render={(routerProps) => <Employees employees={this.props.employees}/> } />
                 </Switch>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel magna velit. Proin condimentum urna a laoreet rutrum. Nunc mollis vitae justo sit amet vestibulum. Ut eget nunc nec purus mattis placerat. Suspendisse semper rhoncus volutpat. Donec sodales aliquam consequat. Fusce dapibus libero non nulla pretium, ac finibus urna blandit. Sed ut arcu in turpis consectetur mattis. Sed vitae velit laoreet, porttitor turpis vitae, viverra est. Integer quis imperdiet tellus, at ornare leo.
             </div>
         )
     }
@@ -36,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getEmployees})(Dashboard)
+export default connect(mapStateToProps, { getEmployees })(Dashboard)

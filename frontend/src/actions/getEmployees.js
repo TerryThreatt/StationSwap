@@ -6,5 +6,6 @@ export const getEmployees = () => {
                 type: 'GET_EMPLOYEES',
                 payload: employees
             }))
-    }
+            .catch(err => console.log(err))
+        }
 }

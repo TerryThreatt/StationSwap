@@ -10,5 +10,6 @@ export const addEmployee = data => {
         })
         .then(res => res.json())
         .then(employee => dispatch({ type: 'ADD_EMPLOYEE', payload: employee }))
+        .catch(err => console.log(err))
     }
 }
