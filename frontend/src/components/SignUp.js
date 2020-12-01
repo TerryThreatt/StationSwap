@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addEmployee } from '../../actions/addEmployee'
+import { addEmployee } from '../actions/addEmployee'
 
-class NavInput extends Component {
+class SignUp extends Component {
     state = {
         name: '',
         email: '',
@@ -44,4 +44,4 @@ class NavInput extends Component {
     }
 }
 
-export default connect(null, { addEmployee })(NavInput)
+export default connect(null, { addEmployee })(SignUp)
