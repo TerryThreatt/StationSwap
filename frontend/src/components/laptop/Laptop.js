@@ -8,6 +8,7 @@ const Laptop = props => {
 
     return(
         <div>
+             {laptop}
             <RentalsContainer laptop={laptop}/>
         </div>
     )
