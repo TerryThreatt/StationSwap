@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addEmployee } from '../actions/addEmployee'
+import { addEmployee } from '../../actions/addEmployee'
 
 class NavInput extends Component {
     state = {

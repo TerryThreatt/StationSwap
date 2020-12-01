@@ -5,8 +5,7 @@ import { addLaptop } from '../../actions/addLaptop'
 class LaptopInput extends Component {
     state = {
         name: '',
-        email: '',
-        password: ''
+        specs: ''
     }
 
     handleChange = e => {
@@ -20,8 +19,7 @@ class LaptopInput extends Component {
         this.props.addLaptop(this.state)
         this.setState({
             name: '',
-            email: '',
-            password: ''
+            specs: ''
         })
     }
 
@@ -32,11 +30,8 @@ class LaptopInput extends Component {
                     <label>Name:</label>
                     <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <br/>
-                    <label>Email:</label>
-                    <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}/>
-                    <br/>
-                    <label >Password:</label>
-                    <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/>
+                    <label>Specs:</label>
+                    <input type="text" placeholder="Specs" value={this.state.specs} name="specs" onChange={this.handleChange}/>
                     <input type="submit" />
                 </form>
             </div>

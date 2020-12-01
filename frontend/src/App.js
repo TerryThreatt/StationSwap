@@ -1,10 +1,10 @@
 import './App.css';
-import Dashboard from './components/Dashboard.js'
+import EmployeeContainer from './containers/EmployeesContainer'
 
 function App() {
   return (
     <div className="App">
-          <Dashboard />
+          <EmployeeContainer />
     </div>
   );
 }
