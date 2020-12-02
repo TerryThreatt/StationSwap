@@ -4,7 +4,7 @@ import RentalsContainer from '../../containers/RentalsContainer'
 
 const Employee = props => {
 
-    let employee = props.employees.filter(employee => employee.id === props.match.params.id)[0]
+    let employee = props.employees.filter(employee => employee.id === props.match.params.id)[1]
 
     return(
         <div>

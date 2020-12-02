@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
 import { connect } from 'react-redux'
-
 import Employee from '../components/employee/Employee'
-import Employees from '../components/employee/Employees'
-import EmployeeInput from '../components/SignIn'
 import { getEmployees } from '../actions/getEmployees'
 
 
@@ -18,9 +14,7 @@ class EmployeesContainer extends Component {
     render() {
         return (
             <div className="employees">
-                <NavBar />
-
-
+                <Employee employees={this.props.employees} history={this.props.history}/>
 
             </div>
         )
@@ -33,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getEmployees})(EmployeesContainer)
+export default connect(mapStateToProps, { getEmployees })(EmployeesContainer)

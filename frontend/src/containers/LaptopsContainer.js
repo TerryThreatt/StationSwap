@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
 import Laptops from '../components/laptop/Laptops'
 import Laptop from '../components/laptop/Laptop'
 import { connect } from 'react-redux'
@@ -17,7 +16,6 @@ class LaptopsContainer extends Component {
     render() {
         return (
             <div className="laptops">
-                <NavBar />
                 <Switch>
                     <Route path="/laptops/new" component={LaptopInput} />
                     <Route path="/laptops/:id" render={(routerProps) => <Laptop {...routerProps} laptops={this.props.laptops}/>}/>

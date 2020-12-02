@@ -4,6 +4,8 @@ export default function employeeReducer(state = {employees: []}, action) {
             return {employees: action.payload}
         case 'ADD_EMPLOYEE':
             return {...state, employees: [...state.employees, action.payload]}
+        case 'SIGN_IN_EMPLOYEE':
+            return {...state, employees: [...state.employees, action.payload]}
         default:
         return state
     }

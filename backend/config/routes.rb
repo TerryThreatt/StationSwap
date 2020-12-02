@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :laptops
   resources :employees
 
-  post "/signin", to: "employee_token#create"
-  post "/signup", to: "employees#create"
-
+  scope '/auth' do
+    post "/signin", to: "employee_token#create"
+    post "/signup", to: "employees#create"
+  end 
 end

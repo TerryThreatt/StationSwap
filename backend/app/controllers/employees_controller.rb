@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :update, :destroy]
-  before_action :authenticate_employee, except: [:create, :index]
+  before_action :authenticate_employee, except: [:create]
   wrap_parameters :employee, include: [:name, :email, :password]
 
   def index

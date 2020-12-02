@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signInEmployee } from '../actions/signInEmployee'
+import { Link } from 'react-router-dom'
 
 class SignIn extends Component {
     state = {
@@ -16,7 +17,7 @@ class SignIn extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.signInEmployee(this.state)
+        this.props.signInEmployee(this.state, this.props.history)
         this.setState({
             email: '',
             password: ''
@@ -25,7 +26,7 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <label>Email:</label>
                     <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}/>
@@ -34,6 +35,8 @@ class SignIn extends Component {
                     <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/>
                     <input type="submit" />
                 </form>
+
+                <Link to="/signup" >First time here? Sign up here</Link>
             </div>
         )
     }

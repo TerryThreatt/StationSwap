@@ -17,7 +17,7 @@ class SignUp extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addEmployee(this.state)
+        this.props.addEmployee(this.state, this.props.history)
         this.setState({
             name: '',
             email: '',

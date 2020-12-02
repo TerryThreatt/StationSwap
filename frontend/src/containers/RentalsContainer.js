@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
 import Rentals from '../components/rental/Rentals'
 import Rental from '../components/rental/Rental'
 import { connect } from 'react-redux'
@@ -16,7 +15,6 @@ class RentalsContainer extends Component {
     render() {
         return (
             <div className="rentals">
-                <NavBar />
                 <Switch>
                     <Route path="/rentals/new" component={RentalInput} />
                     <Route path="/rentals/:id" render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals}/>}/>
