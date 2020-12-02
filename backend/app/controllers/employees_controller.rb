@@ -1,7 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :update, :destroy]
-  before_action :authenticate_employee, except: [:create]
-  wrap_parameters :employee, include: [:name, :email, :password]
+  before_action :authorized, only: [:auto_login]
 
   def index
     @employees = Employee.all
@@ -17,10 +16,26 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      render json: @employee, status: :created
+      token = encode_token({employee_id: @employee.id})
+      render json: { employee: @employee token: token }, status: :created
     else
       render json: @employee.errors, status: :unprocessable_entity
     end
+  end
+
+  def login
+    @employee = Employee.find_by(email: params[:email], password: params[:password])
+
+    if @employee && @employee.authenticate(params[:password])
+      token = encode_token({ employee_id: @employee.id })
+      render json: { employee: @employee, token: token }
+    else
+      render json: @employee.errors, status: :unprocessable_entity
+    end
+  end
+
+  def auto_login
+    render json: @employee
   end
 
   def update

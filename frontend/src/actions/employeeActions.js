@@ -51,4 +51,20 @@ export const getEmployees = () => dispatch => {
         })
             .then(res => res.json())
             .then(data => dispatch({type: 'GET_EMPLOYEES', payload: data}))
-    }
+}
+
+export const autoLogin = () => dispatch => {
+    fetch(`http://localhost:3000/auto_login`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        localStorage.setItem("token", data.token)
+        console.log(data)
+        dispatch(setEmployee(data.employee))
+    })
+}
