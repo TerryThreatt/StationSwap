@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.fetchEmployee(this.state, this.props.history)
+        this.props.signEmployeeIn(this.state, this.props.history)
         this.setState({
             email: '',
             password: ''
