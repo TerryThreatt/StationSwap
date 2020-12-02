@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addEmployee } from '../actions/addEmployee'
+import { signEmployeeUp } from '../actions/employeeActions'
 
 class SignUp extends Component {
     state = {
@@ -17,7 +17,7 @@ class SignUp extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addEmployee(this.state, this.props.history)
+        this.props.signEmployeeUp(this.state, this.props.history)
         this.setState({
             name: '',
             email: '',
@@ -44,4 +44,4 @@ class SignUp extends Component {
     }
 }
 
-export default connect(null, { addEmployee })(SignUp)
+export default connect(null, { signEmployeeUp })(SignUp)

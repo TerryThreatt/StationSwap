@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signInEmployee } from '../actions/signInEmployee'
+import { signEmployeeIn } from '../actions/employeeActions'
 import { Link } from 'react-router-dom'
 
 class SignIn extends Component {
@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.signInEmployee(this.state, this.props.history)
+        this.props.fetchEmployee(this.state, this.props.history)
         this.setState({
             email: '',
             password: ''
@@ -42,4 +42,4 @@ class SignIn extends Component {
     }
 }
 
-export default connect(null, { signInEmployee })(SignIn)
+export default connect(null, { signEmployeeIn })(SignIn)

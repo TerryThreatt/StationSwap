@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Employees from '../components/employee/Employees'
-import { getEmployees } from '../actions/getEmployees'
+import { getEmployees } from '../actions/employeeActions'
 
 
 
