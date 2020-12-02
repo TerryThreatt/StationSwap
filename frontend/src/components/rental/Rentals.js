@@ -6,10 +6,12 @@ const Rentals = props => {
 
     return(
         <div>
-            {props.rentals.map(rental =>
-                <li key={rental.id}>
-                    <Link to={`/rentals/${rental.id}`}>{rental}</Link>
-                </li>)}
+            <ul>
+                {props.rentals.map(rental =>
+                    <li key={rental.id}>
+                        <Link to={`/rentals/${rental.id}`}>{rental}</Link>
+                    </li>)}
+            </ul>
         </div>
     )
 }

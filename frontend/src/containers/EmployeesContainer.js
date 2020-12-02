@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Employee from '../components/employee/Employee'
+import Employees from '../components/employee/Employees'
 import { getEmployees } from '../actions/getEmployees'
 
 
@@ -14,8 +14,7 @@ class EmployeesContainer extends Component {
     render() {
         return (
             <div className="employees">
-                <Employee employees={this.props.employees} history={this.props.history}/>
-
+                <Employees employees={this.props.employees} history={this.props.history}/>
             </div>
         )
     }

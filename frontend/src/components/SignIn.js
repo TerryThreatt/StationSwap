@@ -36,7 +36,7 @@ class SignIn extends Component {
                     <input type="submit" />
                 </form>
 
-                <Link to="/signup" >First time here? Sign up here</Link>
+                <Link to="/auth/signup" >First time here? Sign up here</Link>
             </div>
         )
     }

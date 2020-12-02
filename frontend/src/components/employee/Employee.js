@@ -8,7 +8,6 @@ const Employee = props => {
 
     return(
         <div>
-            {employee}
             <LaptopsContainer employee={employee}/>
             <RentalsContainer employee={employee}/>
         </div>

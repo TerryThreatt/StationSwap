@@ -12,10 +12,11 @@ export const signInEmployee = (data, browserHistory) => {
         })
         .then(res => res.json())
         .then(employee => {
-            addToken(employee.jwt)
+            addToken(employee)
             console.log(employee)
             dispatch({ type: 'SIGN_IN_EMPLOYEE', payload: employee })
             browserHistory.push(`/employees/${employee.id}`)
+
         })
         .catch(err => alert(err))
     }

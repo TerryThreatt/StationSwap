@@ -5,10 +5,12 @@ const Employees = props => {
 
     return(
         <div>
-            {props.employees.map(employee =>
-            <li key={employee.id}>
-                <Link to={`/employees/${employee.id}`}>{employee.name}</Link>
-            </li>)}
+            <ul>
+                {props.employees.map(employee =>
+                <li key={employee.id}>
+                    <Link to={`/employees/${employee.id}`}>{employee.name}</Link>
+                </li>)}
+            </ul>
         </div>
     )
 }

@@ -6,10 +6,12 @@ const Laptops = props => {
 
     return(
         <div>
-            {props.laptops.map(laptop =>
-            <li key={laptop.id}>
-                <Link to={`/laptops/${laptop.id}`}>{laptop.name}</Link>
-            </li>)}
+            <ul>
+                {props.laptops.map(laptop =>
+                <li key={laptop.id}>
+                    <Link to={`/laptops/${laptop.id}`}>{laptop.name}</Link>
+                </li>)}
+            </ul>
         </div>
     )
 }
