@@ -1,5 +1,6 @@
-class EmployeeSerializer < ActiveModel::Serializer
-    attributes :id, :name, :email, :password, :employee_number
-    has_one :laptop
-    has_many :rentals
+class EmployeeSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :name, :email, :password_digest
+  has_one :laptop
+  has_many :rentals
 end

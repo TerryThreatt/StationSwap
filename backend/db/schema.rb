@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_013213) do
+ActiveRecord::Schema.define(version: 2020_12_03_214316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2020_12_03_013213) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.integer "employee_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,8 +34,6 @@ ActiveRecord::Schema.define(version: 2020_12_03_013213) do
 
   create_table "rentals", force: :cascade do |t|
     t.datetime "request_date"
-    t.bigint "employee_number", null: false
-    t.bigint "laptop", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "employee_id"
