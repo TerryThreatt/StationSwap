@@ -10,6 +10,7 @@ class SignUp extends Component {
     }
 
     handleChange = e => {
+        e.persist()
         this.setState({
             [e.target.name]: e.target.value
         })

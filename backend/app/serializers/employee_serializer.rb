@@ -1,5 +1,5 @@
 class EmployeeSerializer < ActiveModel::Serializer
-    attributes :id, :name, :email, :employee_number
+    attributes :id, :name, :email, :password, :employee_number
     has_one :laptop
-    has_many :rentals 
+    has_many :rentals
 end

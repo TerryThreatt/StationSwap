@@ -11,9 +11,13 @@ class EmployeesContainer extends Component {
         this.props.getEmployees()
     }
 
+
     render() {
+        console.log(this.props)
+
         return (
             <div className="employees">
+
                 <Employees employees={this.props.employees} history={this.props.history}/>
             </div>
         )
@@ -22,7 +26,8 @@ class EmployeesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        employees: state.employees
+        employees: state.employees,
+        employee: state.employee
     }
 }
 

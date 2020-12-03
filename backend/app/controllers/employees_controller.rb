@@ -15,22 +15,22 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
 
-    if @employee.save
-      token = encode_token({employee_id: @employee.id})
-      render json: { employee: @employee token: token }, status: :created
+    if @employee.valid?
+      token = encode_token({employee_id: @employee.id })
+      render json: { employee: @employee, token: token }, status: :created
     else
-      render json: @employee.errors, status: :unprocessable_entity
+      render json: { error: "Sign Up: Invalid email or password" }
     end
   end
 
-  def login
-    @employee = Employee.find_by(email: params[:email], password: params[:password])
+  def signin
+    @employee = Employee.find_by(email: params[:email])
 
     if @employee && @employee.authenticate(params[:password])
       token = encode_token({ employee_id: @employee.id })
       render json: { employee: @employee, token: token }
     else
-      render json: @employee.errors, status: :unprocessable_entity
+      render json: { error: "Sign In: Invalid email or password" }
     end
   end
 

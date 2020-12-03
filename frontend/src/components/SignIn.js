@@ -10,6 +10,7 @@ class SignIn extends Component {
     }
 
     handleChange = e => {
+        e.persist()
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -36,7 +37,7 @@ class SignIn extends Component {
                     <input type="submit" />
                 </form>
 
-                <Link to="/auth/signup" >First time here? Sign up here</Link>
+                <Link to="/signup" >First time here? Sign up here</Link>
             </div>
         )
     }

@@ -17,9 +17,9 @@ class App extends Component {
             <h3>Laptop Rental App for Remote Teams</h3>
             <br/>
             <Switch>
-                <Route exact path="/" render={(routerProps) => <SignIn history={routerProps.history }/>} />
-                <Route path="/auth/signup" render={(routerProps) => <SignUp history={routerProps.history }/>} />
-                <Route path="/auth/signin" render={(routerProps) => <SignIn history={routerProps.history }/>}/>
+                <Route exact path="/" render={(routerProps) => <SignIn {...routerProps} history={routerProps.history }/>} />
+                <Route path="/signup" render={(routerProps) => <SignUp {...routerProps} history={routerProps.history }/>} />
+                <Route path="/signin" render={(routerProps) => <SignIn {...routerProps} history={routerProps.history }/>}/>
                 <Route path="/employees/:id" render={(routerProps) => <EmployeesContainer {...routerProps} history={routerProps.history}/>}/>
                 <Route exact path="/laptops" render={(routerProps) => <Laptops history={routerProps.history}/>}/>
                 <Route exact path="/rentals" render={(routerProps) => <Rentals history={routerProps.history}/>}/>
