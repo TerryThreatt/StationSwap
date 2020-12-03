@@ -30,6 +30,7 @@ export const signEmployeeUp = (employeeInfo, browserHistory) => dispatch => {
     })
     .then(res => res.json())
     .then(data => {
+        console.log(data)
         localStorage.setItem("token", data.token)
         dispatch(setEmployee(data.employee))
         browserHistory.push(`/employees/${data.employee.id}`)

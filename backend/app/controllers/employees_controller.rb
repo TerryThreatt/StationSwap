@@ -17,7 +17,7 @@ class EmployeesController < ApplicationController
 
     if @employee.valid?
       token = encode_token({employee_id: @employee.id })
-      render json: EmployeeSerializer.new({ employee: @employee, token: token }), status: :created
+      render json: { employee: @employee, token: token }, status: :created
     else
       render json: { error: "Sign Up: Invalid email or password" }
     end
