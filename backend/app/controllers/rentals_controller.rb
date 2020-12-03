@@ -39,6 +39,6 @@ class RentalsController < ApplicationController
     end
 
     def rental_params
-      params.require(:rental).permit(:request_date, :employee_id, :laptop_id)
+      params.require(:rental).permit(:request_date, :name, :email, :laptop_id)
     end
 end
