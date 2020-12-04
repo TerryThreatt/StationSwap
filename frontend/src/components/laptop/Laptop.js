@@ -4,11 +4,11 @@ import RentalsContainer from '../../containers/RentalsContainer'
 
 const Laptop = props => {
 
-    let laptop = props.laptops.filter(laptop => laptop.id === props.match.params.id)[0]
+    const { laptop } = props
 
     return(
         <div>
-             {laptop}
+             {laptop.name}
             <RentalsContainer laptop={laptop}/>
         </div>
     )

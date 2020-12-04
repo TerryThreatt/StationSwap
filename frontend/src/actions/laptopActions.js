@@ -3,8 +3,7 @@ export const addLaptop = laptopInfo => dispatch => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                'Accept': 'application/json'
             },
             body: JSON.stringify(laptopInfo)
         })
@@ -18,8 +17,7 @@ export const getLaptops = () => dispatch => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            "Authorization": `Bearer ${localStorage.getItem("token")}`
+            'Accept': 'application/json'
             },
         })
         .then(res => res.json())

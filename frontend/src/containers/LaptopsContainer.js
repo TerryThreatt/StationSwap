@@ -4,7 +4,7 @@ import Laptop from '../components/laptop/Laptop'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import LaptopInput from '../components/laptop/LaptopInput'
-import { getLaptops } from '../actions/getLaptops'
+import { getLaptops } from '../actions/laptopActions'
 
 
 class LaptopsContainer extends Component {
@@ -21,7 +21,10 @@ class LaptopsContainer extends Component {
                     <Route path="/laptops/:id" render={(routerProps) => <Laptop {...routerProps} laptops={this.props.laptops}/>}/>
                     <Route exact path="/laptops" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops}/> } />
                 </Switch>
+
+                <Laptops laptops={this.props.laptops} />
             </div>
+
         )
     }
 }

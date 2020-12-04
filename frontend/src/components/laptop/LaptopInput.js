@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addLaptop } from '../../actions/addLaptop'
+import { addLaptop } from '../../actions/laptopActions'
 
 class LaptopInput extends Component {
     state = {

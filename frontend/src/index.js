@@ -8,12 +8,10 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
-import employeeReducer from './reducers/employeeReducer'
 import laptopReducer from './reducers/laptopReducer'
 import rentalReducer from './reducers/rentalReducer'
 
 let rootReducer = combineReducers({
-  employees: employeeReducer,
   laptops: laptopReducer,
   rentals: rentalReducer
 })

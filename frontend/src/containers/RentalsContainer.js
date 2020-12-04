@@ -4,7 +4,7 @@ import Rental from '../components/rental/Rental'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import RentalInput from '../components/rental/RentalInput'
-import { getRentals } from '../actions/getRentals'
+import { getRentals } from '../actions/rentalActions'
 
 class RentalsContainer extends Component {
 

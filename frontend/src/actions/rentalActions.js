@@ -1,11 +1,10 @@
 
-export const addRental = (rentalInfo, employeeId) => dispatch => {
-        fetch(`http://localhost:3000/employees/${employeeId}/rentals`, {
+export const addRental = (rentalInfo, laptopId) => dispatch => {
+        fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                'Accept': 'application/json'
             },
             body: JSON.stringify(rentalInfo)
         })
@@ -19,8 +18,7 @@ export const getRentals = () => dispatch => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                'Accept': 'application/json'
                 },
             })
             .then(res => res.json())
