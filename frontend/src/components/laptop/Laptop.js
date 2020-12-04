@@ -6,7 +6,7 @@ const Laptop = props => {
 
     const { laptop } = props
 
-    return(
+    return (
         <div>
              {laptop.name}
             <RentalsContainer laptop={laptop}/>

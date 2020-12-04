@@ -8,7 +8,7 @@ export const addLaptop = laptopInfo => dispatch => {
             body: JSON.stringify(laptopInfo)
         })
         .then(res => res.json())
-        .then(data => dispatch({ type: 'ADD_LAPTOP', payload: data }))
+        .then(data => dispatch({ type: 'ADD_LAPTOP', payload: data.laptop }))
 }
 
 
@@ -21,5 +21,5 @@ export const getLaptops = () => dispatch => {
             },
         })
         .then(res => res.json())
-        .then(data => dispatch({type: 'GET_LAPTOPS', payload: data }))
+        .then(data => dispatch({type: 'GET_LAPTOPS', payload: data.laptops }))
     }

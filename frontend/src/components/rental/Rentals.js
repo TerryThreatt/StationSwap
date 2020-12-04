@@ -7,13 +7,15 @@ const Rentals = props => {
 
     const { rentals } = props
 
-    const rentalsList = rentals.map(rental => {
-        return <Rental key={rental.id} rental={rental}>
-            <Link to={`/rental/${rental.id}`}>{rental.name}</Link>
-        </Rental>
+    const rentalsList = rentals && rentals.map(rental => {
+        return (
+            <Rental key={rental.id} rental={rental}>
+                <Link to={`/rental/${rental.id}`}>{rental.name}</Link>
+            </Rental>
+        )
     })
 
-    return(
+    return (
         <div>
             <ul>
                 {rentalsList}
