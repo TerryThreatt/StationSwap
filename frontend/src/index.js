@@ -4,28 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
-import laptopReducer from './reducers/laptopReducer'
-import rentalReducer from './reducers/rentalReducer'
+import rootReducer from './reducers/rootReducer'
 
-let rootReducer = combineReducers({
-  laptops: laptopReducer,
-  rentals: rentalReducer
-})
+const middlewareEnhancer = applyMiddleware(thunk)
+const composedEnhancers = compose(middlewareEnhancer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-let enhancers = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-let store = createStore(rootReducer, enhancers)
+const store = createStore(rootReducer, composedEnhancers)
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <React.StrictMode>
         <App />
-      </React.StrictMode>
     </Router>
   </Provider>,
   document.getElementById('root')
