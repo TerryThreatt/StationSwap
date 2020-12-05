@@ -8,9 +8,11 @@ const Laptops = props => {
 
     const laptopsList = laptops && laptops.map(laptop => {
         return (
-            <Laptop key={laptop.id} laptop={laptop}>
-                <Link to={`/laptops/${laptop.id}`}>{laptop.name}</Link>
-            </Laptop>
+            <li>
+                <Laptop key={laptop.id} laptop={laptop}>
+                    <Link to={`/laptops/${laptop.id}`}>{laptop.name}</Link>
+                </Laptop>
+            </li>
         )
     })
 
@@ -22,6 +24,10 @@ const Laptops = props => {
             </ul>
         </div>
     )
+}
+
+Laptops.defaultProps = {
+    laptops: []
 }
 
 export default Laptops

@@ -9,9 +9,11 @@ const Rentals = props => {
 
     const rentalsList = rentals && rentals.map(rental => {
         return (
-            <Rental key={rental.id} rental={rental}>
-                <Link to={`/rental/${rental.id}`}>{rental.name}</Link>
-            </Rental>
+            <li>
+                <Rental key={rental.id} rental={rental}>
+                    <Link to={`/rental/${rental.id}`}>{rental.name}</Link>
+                </Rental>
+            </li>
         )
     })
 
@@ -22,6 +24,10 @@ const Rentals = props => {
             </ul>
         </div>
     )
+}
+
+Rentals.defaultProps = {
+    rentals: []
 }
 
 export default Rentals

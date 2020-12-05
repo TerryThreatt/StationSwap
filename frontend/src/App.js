@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import Laptops from './components/laptop/Laptops'
 import Rentals from './components/rental/Rentals'
-import LaptopsContainer from './containers/LaptopsContainer';
+// import LaptopsContainer from './containers/LaptopsContainer';
 import Home from './components/Home'
 
 class App extends Component {
