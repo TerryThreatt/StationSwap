@@ -32,7 +32,7 @@ class LaptopInput extends Component {
                     <br/>
                     <label>Specs:</label>
                     <input type="text" placeholder="Specs" value={this.state.specs} name="specs" onChange={this.handleChange}/>
-                    <input type="submit" />
+                    <input type="submit" color="info"/>
                 </form>
             </div>
         )

@@ -35,7 +35,7 @@ class RentalInput extends Component {
                     <input type="text-local" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <label>Email:</label>
                     <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}/>
-                    <input type="submit" />
+                    <input type="submit" color="info" />
                 </form>
             </div>
         )

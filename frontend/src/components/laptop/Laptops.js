@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Laptop from './Laptop'
 
 const Laptops = props => {
-
     const { laptops } = props
 
     const laptopsList = laptops && laptops.map(laptop => {

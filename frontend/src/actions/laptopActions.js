@@ -13,7 +13,7 @@ export const addLaptop = laptopInfo => dispatch => {
 
 
 export const getLaptops = () => dispatch => {
-    fetch(`http://localhost:3000/laptops`,{
+    return fetch(`http://localhost:3000/laptops`,{
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

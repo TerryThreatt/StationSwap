@@ -14,7 +14,7 @@ export const addRental = (rentalInfo, laptopId) => dispatch => {
 }
 
 export const getRentals = () => dispatch => {
-        fetch(`http://localhost:3000/rentals`,{
+        return fetch(`http://localhost:3000/rentals`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
