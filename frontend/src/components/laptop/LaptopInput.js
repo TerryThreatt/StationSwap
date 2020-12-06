@@ -26,13 +26,17 @@ class LaptopInput extends Component {
     render() {
         return (
             <div>
+                <br/>
+                <h1>Add Laptop</h1>
+                <br/>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name:</label>
                     <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <br/>
                     <label>Specs:</label>
                     <input type="text" placeholder="Specs" value={this.state.specs} name="specs" onChange={this.handleChange}/>
-                    <input type="submit" color="info"/>
+                    <br/>
+                    <input type="submit" />
                 </form>
             </div>
         )

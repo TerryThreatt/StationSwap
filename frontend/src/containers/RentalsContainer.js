@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Rentals from '../components/rental/Rentals'
-import Rental from '../components/rental/Rental'
 import { connect } from 'react-redux'
-import { Route, Switch } from 'react-router-dom'
 import RentalInput from '../components/rental/RentalInput'
 import { getRentals } from '../actions/rentalActions'
 
@@ -15,11 +13,9 @@ class RentalsContainer extends Component {
     render() {
         return (
             <div className="rentals">
-                <Switch>
-                    <Route path="/rentals/new" component={RentalInput} />
-                    <Route path="/rentals/:id" render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals}/>}/>
-                    <Route exact path="/rentals" render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals}/> } />
-                </Switch>
+                <Rentals rentals={this.props.rentals} />
+                <h3>Add new Rental</h3>
+                <RentalInput />
             </div>
         )
     }

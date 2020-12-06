@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Rental from './Rental'
+import { connect } from 'react-redux'
 
 
 const Rentals = props => {
@@ -9,11 +10,9 @@ const Rentals = props => {
 
     const rentalsList = rentals && rentals.map(rental => {
         return (
-            <li>
                 <Rental key={rental.id} rental={rental}>
                     <Link to={`/rental/${rental.id}`}>{rental.name}</Link>
                 </Rental>
-            </li>
         )
     })
 
@@ -26,8 +25,14 @@ const Rentals = props => {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        rentals: state.rentals
+    }
+}
+
 Rentals.defaultProps = {
     rentals: []
 }
 
-export default Rentals
+export default connect(mapStateToProps, null)(Rentals)

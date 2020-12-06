@@ -1,6 +1,6 @@
 
 export const addRental = (rentalInfo, laptopId) => dispatch => {
-        fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
+        return fetch(`http://localhost:3001/laptops/${laptopId}/rentals`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const addRental = (rentalInfo, laptopId) => dispatch => {
 }
 
 export const getRentals = () => dispatch => {
-        return fetch(`http://localhost:3000/rentals`,{
+        return fetch(`http://localhost:3001/rentals`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

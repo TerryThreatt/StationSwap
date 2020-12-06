@@ -28,13 +28,19 @@ class RentalInput extends Component {
     render() {
         return (
             <div>
+                <br/>
+                <h1>Add Rental</h1>
+                <br/>
                 <form onSubmit={this.handleSubmit}>
                     <label>Request Date:</label>
                     <input type="datetime-local" placeholder="Request Date" value={this.state.request_date} name="request_date" onChange={this.handleChange}/>
+                    <br/>
                     <label>Name:</label>
                     <input type="text-local" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
+                    <br/>
                     <label>Email:</label>
                     <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange}/>
+                    <br/>
                     <input type="submit" color="info" />
                 </form>
             </div>

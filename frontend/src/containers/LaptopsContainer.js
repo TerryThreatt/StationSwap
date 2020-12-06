@@ -1,35 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Laptops from '../components/laptop/Laptops'
-import Laptop from '../components/laptop/Laptop'
-import { connect } from 'react-redux'
 import LaptopInput from '../components/laptop/LaptopInput'
-import { getLaptops } from '../actions/laptopActions'
+import { Link } from 'react-router-dom'
 
 
-class LaptopsContainer extends Component {
+const LaptopsContainer = (props) => {
 
-    componentDidMount(){
-        this.props.getLaptops()
-        debugger
-    }
-
-    render() {
+        const { laptops } = props
+        
         return (
             <div className="laptops">
-                <Laptops laptops={this.props.laptops} />
-                <Laptop laptops={this.props.laptops} />
+                <Laptops laptops={laptops} />
+                <br/>
                 <h3>Add new laptop</h3>
-                <LaptopInput />
+                <Link to="/laptops"><LaptopInput /></Link>
             </div>
-
         )
     }
-}
 
-const mapStateToProps = state => {
-    return {
-        laptops: state.laptops
-    }
-}
 
-export default connect(mapStateToProps, { getLaptops })(LaptopsContainer)
+export default LaptopsContainer

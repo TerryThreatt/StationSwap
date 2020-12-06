@@ -7,11 +7,9 @@ const Laptops = props => {
 
     const laptopsList = laptops && laptops.map(laptop => {
         return (
-            <li>
                 <Laptop key={laptop.id} laptop={laptop}>
                     <Link to={`/laptops/${laptop.id}`}>{laptop.name}</Link>
                 </Laptop>
-            </li>
         )
     })
 
