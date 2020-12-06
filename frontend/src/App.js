@@ -22,6 +22,13 @@ class App extends Component {
 
     return (
       <div className="App">
+            <NavBar title="StationSwap" />
+                <br/>
+                <h1>StationSwap</h1>
+                <h3>Laptop Rental App for Remote Teams</h3>
+                <br/>
+            <LaptopsContainer laptops={this.props.laptops}/>
+
             <Switch>
                 <Route exact path="/laptops/new" component={LaptopInput}/>
                 <Route exact path="/laptops" component={LaptopsContainer}/>
@@ -31,12 +38,6 @@ class App extends Component {
                 <Route path="/rentals/:id" component={Rental}/>
             </Switch>
 
-            <NavBar title="StationSwap" />
-                <br/>
-                <h1>StationSwap</h1>
-                <h3>Laptop Rental App for Remote Teams</h3>
-                <br/>
-              <LaptopsContainer laptops={this.props.laptops}/>
       </div>
     );
   }
@@ -44,7 +45,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      laptops: state.laptops
+    laptops: state.laptops
   }
 }
 

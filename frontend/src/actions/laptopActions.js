@@ -1,25 +1,11 @@
-export const addLaptop = laptopInfo => dispatch => {
-      fetch(`http://localhost:3000/laptops`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(laptopInfo)
-        })
-        .then(res => res.json())
-        .then(data => dispatch({ type: 'ADD_LAPTOP', payload: data.laptop }))
-}
-
+import axios from 'axios'
 
 export const getLaptops = () => dispatch => {
-    fetch('http://localhost:3000/laptops', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-            },
-        })
-        .then(res => res.json())
-        .then(data => dispatch({type: 'GET_LAPTOPS', payload: data.laptops}))
-    }
+    axios.get('http://localhost:3000/laptops')
+        .then(data => dispatch({type: 'GET_LAPTOPS', payload: data.data}))
+}
+
+export const addLaptop = laptopInfo => dispatch => {
+      axios.post(`http://localhost:3000/laptops`, {laptopInfo})
+        .then(data => dispatch({ type: 'ADD_LAPTOP', payload: data.data }))
+}

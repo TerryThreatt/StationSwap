@@ -7,13 +7,12 @@ import { Link } from 'react-router-dom'
 const LaptopsContainer = (props) => {
 
         const { laptops } = props
-        
+
         return (
             <div className="laptops">
                 <Laptops laptops={laptops} />
                 <br/>
-                <h3>Add new laptop</h3>
-                <Link to="/laptops"><LaptopInput /></Link>
+                <LaptopInput />
             </div>
         )
     }
