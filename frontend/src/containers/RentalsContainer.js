@@ -13,9 +13,10 @@ class RentalsContainer extends Component {
     render() {
         return (
             <div className="rentals">
-                <Rentals rentals={this.props.rentals} />
                 <h3>Add new Rental</h3>
-                <RentalInput />
+                <RentalInput rental={this.props.rental}/>
+                <Rentals rentals={this.props.rental} />
+
             </div>
         )
     }

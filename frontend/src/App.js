@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import Laptop from './components/laptop/Laptop'
-import Rental from './components/rental/Rental'
+import Laptops from './components/laptop/Laptops'
 import LaptopInput from './components/laptop/LaptopInput'
-import RentalInput from './components/rental/RentalInput'
 import LaptopsContainer from './containers/LaptopsContainer';
-import RentalsContainer from './containers/RentalsContainer';
 import { connect } from 'react-redux'
 import { getLaptops } from './actions/laptopActions'
 import NavBar from './components/NavBar'
-
 
 class App extends Component {
 
@@ -18,6 +15,13 @@ class App extends Component {
     this.props.getLaptops()
   }
 
+  Loading = () => {
+    if(this.props.loading) {
+      return <div>Loading...</div>
+    } else {
+      return <LaptopsContainer laptops={this.props.laptops} />
+    }
+  }
   render() {
 
     return (
@@ -27,15 +31,12 @@ class App extends Component {
                 <h1>StationSwap</h1>
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
-            <LaptopsContainer laptops={this.props.laptops}/>
-
+                {this.Loading()}
             <Switch>
-                <Route exact path="/laptops/new" component={LaptopInput}/>
-                <Route exact path="/laptops" component={LaptopsContainer}/>
-                <Route path="/laptops/:id" component={Laptop}/>
-                <Route exact path="/rentals/new" component={RentalInput}/>
-                <Route exact path="/rentals" component={RentalsContainer}/>
-                <Route path="/rentals/:id" component={Rental}/>
+                <Route exact path="/" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
+                <Route exact path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
+                <Route exact path="/laptops" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
+                <Route path="/laptops/:id" render={(routerProps) => <Laptop {...routerProps} laptops={this.props.laptops} />}/>
             </Switch>
 
       </div>
@@ -43,10 +44,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    laptops: state.laptops
-  }
-}
+const mapStateToProps = state => ({ state })
 
-export default connect(mapStateToProps, { getLaptops })(App)
+export default connect(mapStateToProps, {getLaptops})(App)

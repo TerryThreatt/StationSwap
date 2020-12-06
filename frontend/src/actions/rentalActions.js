@@ -1,5 +1,5 @@
 
-export const addRental = (rentalInfo, laptopId) => dispatch => {
+export const addRental = (rentalInfo, laptopId, history) => dispatch => {
         return fetch(`http://localhost:3001/laptops/${laptopId}/rentals`, {
             method: 'POST',
             headers: {
@@ -9,7 +9,11 @@ export const addRental = (rentalInfo, laptopId) => dispatch => {
             body: JSON.stringify(rentalInfo)
         })
         .then(res => res.json())
-        .then(data => dispatch({ type: 'ADD_RENTAL', payload: data.rental }))
+    .then(response => {
+        dispatch({ type: 'ADD_RENTAL', rental: response.data })
+        history.push(`/laptops/${laptopId}/${response.id}`)
+
+    })
         .catch(err => console.log(err))
 }
 
@@ -22,6 +26,6 @@ export const getRentals = () => dispatch => {
                 },
             })
             .then(res => res.json())
-            .then(data => dispatch({ type: 'GET_RENTALS', payload: data.rentals}))
+            .then(response => dispatch({ type: 'GET_RENTALS', rentals: response.data}))
             .catch(err => console.log(err))
 }
