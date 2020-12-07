@@ -11,7 +11,8 @@ export const getRentals = () => {
     }
 }
 
-    export const addRental = (rentalInfo, laptopId, history) => {
+    export const addRental = (rentalInfo, laptopId, browserHistory) => {
+        const rentalData = {rental: rentalInfo}
         return (dispatch) => {
         return fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
             method: 'POST',
@@ -19,12 +20,12 @@ export const getRentals = () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(rentalInfo)
+            body: JSON.stringify(rentalData)
         })
         .then(res => res.json())
         .then(response => {
             dispatch({ type: 'ADD_RENTAL', rental: response})
-            history.push(`/laptops/${laptopId}/${response.id}`)
+            browserHistory.push(`/laptops/${laptopId}/${response.id}`)
             return response
         })
     }

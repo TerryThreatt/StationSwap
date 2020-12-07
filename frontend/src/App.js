@@ -39,8 +39,7 @@ class App extends Component {
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
                 {this.Loading()}
-                {console.log(this.props)}
-
+                
             <Switch>
                 <Route exact path="/" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
                 <Route exact path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>

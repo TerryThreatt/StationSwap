@@ -4,12 +4,11 @@ import LaptopInput from '../components/laptop/LaptopInput'
 import Laptop from '../components/laptop/Laptop'
 const LaptopsContainer = (props) => {
 
-        const { laptops } = props
         return (
 
             <div className="laptops">
                 <br/>
-                <LaptopInput laptops={laptops} />
+                <LaptopInput laptops={props.laptops} />
             </div>
         )
     }

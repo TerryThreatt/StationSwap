@@ -13,6 +13,7 @@ export const getLaptops = () => {
 }
 
 export const addLaptop = (laptopInfo, browserHistory) => {
+    const laptopData = {laptop: laptopInfo}
     return (dispatch) => {
       return fetch(`http://localhost:3000/laptops`, {
             method: "POST",
@@ -20,7 +21,7 @@ export const addLaptop = (laptopInfo, browserHistory) => {
                 'Content-Type': 'application/json',
                 'Accepts': 'application/json'
             },
-            body: JSON.stringify(laptopInfo)
+            body: JSON.stringify(laptopData)
     })
         .then(res => res.json())
         .then(response => {

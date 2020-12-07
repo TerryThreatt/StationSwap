@@ -30,8 +30,7 @@ class RentalsContainer extends Component {
         return (
             <div className="RentalsContainer">
                 {this.Loading()}
-                {console.log(this.props)}
-
+                
                 <Switch>
                     <Route exact path="/rentals/new" render={(routerProps) => <RentalInput {...routerProps} rentals={this.props.rentals} />}/>
                     <Route exact path="/rentals" render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />}/>
