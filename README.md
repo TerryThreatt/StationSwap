@@ -1,6 +1,6 @@
 # StationSwap
 
-Moby is a laptop rental app that allows you to add new laptops and new laptop rentals. This project was setup by created a new Rails API on the backend and serving data up to a React-Redux frontend. 
+StationSwap is a laptop rental app that allows you to add new laptops and new laptop rentals. This project was setup by created a new Rails API on the backend and serving data up to a React-Redux frontend. 
 
 ![StationSwap](frontend/StationSwap.png)
 
