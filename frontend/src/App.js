@@ -21,9 +21,9 @@ class App extends Component {
     } else {
       return (
               <div>
-                <LaptopsContainer laptops={this.props.laptops} />
-                <Laptops laptops={this.props.laptops} />
-                <Laptop laptops={this.props.laptops} />
+                {/* <LaptopsContainer laptops={this.props.laptops} /> */}
+                {/* <Laptops laptops={this.props.laptops} /> */}
+                {/* <Laptop laptops={this.props.laptops} /> */}
               </div>
       )
     }
@@ -39,7 +39,7 @@ class App extends Component {
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
                 {this.Loading()}
-                
+
             <Switch>
                 <Route exact path="/" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
                 <Route exact path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
