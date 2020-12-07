@@ -3,15 +3,15 @@ import RentalsContainer from '../../containers/RentalsContainer'
 
 const Laptop = props => {
 
-
-    let laptop = props.laptops.filter(laptop => laptop.id === props.match.params.id)
+    console.log(props.laptops)
+    let laptop = props.laptops && props.laptops.filter(laptop => laptop.id === props.match.params.id)
 
     return (
         <div>
             <li>
              <h1>{laptop.name}</h1>
-            <RentalsContainer laptop={laptop}/>
             </li>
+            <RentalsContainer laptop={laptop}/>
         </div>
     )
 }

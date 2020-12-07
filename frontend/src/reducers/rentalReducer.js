@@ -1,16 +1,13 @@
-const initialState = {
-    rentals: [],
-    rental: {}
-}
-
-export default function rentalReducer(state = initialState, action) {
+export default function rentalReducer(state = {rentals: [], rental: {}, loading: false }, action) {
     switch(action.type){
+        case 'GETTING_RENTALS':
+            return {...state, rentals: [...state.rentals], loading: true}
         case 'GET_RENTALS':
-            return {...state, rentals: [...state.rentals, action.payload]}
+            return {...state, rentals: action.rentals, loading: true }
         case 'ADD_RENTAL':
             let rental = state.rentals.map(rental => {
-                if(rental.id === action.payload.id){
-                    return action.payload
+                if(rental.id === action.rental.id){
+                    return action.rental
                 } else {
                     return rental
                 }

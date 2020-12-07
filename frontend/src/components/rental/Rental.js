@@ -1,21 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 const Rental = props => {
 
-    const { rental } = props
-
+    console.log(props.rentals)
+    let rental = props.rentals && props.rentals.filter(rental => rental.id === props.match.params.id)
     return(
         <div>
-            {rental}
+            <li>
+                <h1>{rental.name}</h1>
+            </li>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        rental: state.rental
-    }
-}
-
-export default connect(mapStateToProps, null)(Rental)
+export default Rental

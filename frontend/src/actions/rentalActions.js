@@ -1,6 +1,19 @@
+export const getRentals = () => {
+        return (dispatch) => {
+            dispatch({ type: 'GETTING_RENTALS'})
+            return fetch('http://localhost:3000/rentals')
+            .then(res => res.json())
+            .then(response => {
+                dispatch({ type: 'GET_RENTALS', rentals: response})
+                return response
+            }
+        )
+    }
+}
 
-export const addRental = (rentalInfo, laptopId, history) => dispatch => {
-        return fetch(`http://localhost:3001/laptops/${laptopId}/rentals`, {
+    export const addRental = (rentalInfo, laptopId, history) => {
+        return (dispatch) => {
+        return fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -9,23 +22,10 @@ export const addRental = (rentalInfo, laptopId, history) => dispatch => {
             body: JSON.stringify(rentalInfo)
         })
         .then(res => res.json())
-    .then(response => {
-        dispatch({ type: 'ADD_RENTAL', rental: response.data })
-        history.push(`/laptops/${laptopId}/${response.id}`)
-
-    })
-        .catch(err => console.log(err))
-}
-
-export const getRentals = () => dispatch => {
-        return fetch(`http://localhost:3001/rentals`,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-                },
-            })
-            .then(res => res.json())
-            .then(response => dispatch({ type: 'GET_RENTALS', rentals: response.data}))
-            .catch(err => console.log(err))
+        .then(response => {
+            dispatch({ type: 'ADD_RENTAL', rental: response})
+            history.push(`/laptops/${laptopId}/${response.id}`)
+            return response
+        })
+    }
 }

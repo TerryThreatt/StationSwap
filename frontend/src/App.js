@@ -19,9 +19,16 @@ class App extends Component {
     if(this.props.loading) {
       return <div>Loading...</div>
     } else {
-      return <LaptopsContainer laptops={this.props.laptops} />
+      return (
+              <div>
+                <LaptopsContainer laptops={this.props.laptops} />
+                <Laptops laptops={this.props.laptops} />
+                <Laptop laptops={this.props.laptops} />
+              </div>
+      )
     }
   }
+
   render() {
 
     return (
@@ -32,6 +39,8 @@ class App extends Component {
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
                 {this.Loading()}
+                {console.log(this.props)}
+
             <Switch>
                 <Route exact path="/" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
                 <Route exact path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
@@ -44,6 +53,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({ state })
+const mapStateToProps = state => {
+  return {
+    laptops: state.laptops.laptops
+  }
+}
 
 export default connect(mapStateToProps, {getLaptops})(App)

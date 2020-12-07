@@ -12,9 +12,9 @@ export const getLaptops = () => {
     }
 }
 
-export const addLaptop = (laptopInfo) => {
+export const addLaptop = (laptopInfo, browserHistory) => {
     return (dispatch) => {
-      fetch(`http://localhost:3000/laptops`, {
+      return fetch(`http://localhost:3000/laptops`, {
             method: "POST",
             header: {
                 'Content-Type': 'application/json',
@@ -22,9 +22,11 @@ export const addLaptop = (laptopInfo) => {
             },
             body: JSON.stringify(laptopInfo)
     })
-        .them(res => res.json())
+        .then(res => res.json())
         .then(response => {
             dispatch({ type: 'ADD_LAPTOP', laptop: response})
+            browserHistory.push(`/laptops/${response.id}`)
+            return response
         })
     }
 }
