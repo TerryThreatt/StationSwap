@@ -6,28 +6,28 @@ export const getLaptops = () => {
         .then(res => res.json())
         .then(response => {
             dispatch({type: 'GET_LAPTOPS', laptops: response})
-            return response
             }
         )
     }
 }
 
-export const addLaptop = (laptopInfo, browserHistory) => {
-    const laptopData = {laptop: laptopInfo}
+export const addLaptop = (laptopForm, history) => {
+    const {name, specs} = laptopForm
+    const laptop = {laptop: {name: name, specs: specs}}
+
     return (dispatch) => {
-      return fetch(`http://localhost:3000/laptops`, {
-            method: "POST",
+      return fetch('http://localhost:3000/laptops', {
+            method: 'POST',
             header: {
                 'Content-Type': 'application/json',
                 'Accepts': 'application/json'
             },
-            body: JSON.stringify(laptopData)
+            body: JSON.stringify(laptop)
     })
         .then(res => res.json())
         .then(response => {
             dispatch({ type: 'ADD_LAPTOP', laptop: response})
-            browserHistory.push(`/laptops/${response.id}`)
-            return response
+            history.push(`/laptops/${response.id}`, response)
         })
     }
 }

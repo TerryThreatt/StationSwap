@@ -17,7 +17,7 @@ class RentalInput extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addRental(this.state, this.props.laptop.id)
+        this.props.addRental(this.state, this.props.laptop.id, this.props.history)
         this.setState({
             request_date: '',
             name: '',

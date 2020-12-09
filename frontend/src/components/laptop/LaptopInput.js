@@ -34,7 +34,7 @@ class LaptopInput extends Component {
                     <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <br/>
                     <label>Specs:</label>
-                    <input type="text" placeholder="Specs" value={this.state.specs} name="specs" onChange={this.handleChange}/>
+                    <textarea placeholder="Specs" value={this.state.specs} name="specs" onChange={this.handleChange}/>
                     <br/>
                     <input type="submit" />
                 </form>

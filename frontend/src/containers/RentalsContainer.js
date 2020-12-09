@@ -18,7 +18,6 @@ class RentalsContainer extends Component {
         } else {
           return (
                   <div className="RentalContainer">
-                    <Rentals rentals={this.props.rentals} />
                     <Rental rentals={this.props.rentals} />
                     <RentalInput rentals={this.props.rentals} />
                   </div>
@@ -30,20 +29,40 @@ class RentalsContainer extends Component {
         return (
             <div className="RentalsContainer">
                 {this.Loading()}
-                
+
                 <Switch>
-                    <Route exact path="/rentals/new" render={(routerProps) => <RentalInput {...routerProps} rentals={this.props.rentals} />}/>
-                    <Route exact path="/rentals" render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />}/>
-                    <Route path="/rentals/:id" render={(routerProps) => <Rental {...routerProps} rentals={this.props.rental} />}/>
+                    <Route path="/rentals/new" render={(routerProps) => <RentalInput {...routerProps} rentals={this.props.rentals} />}/>
+                    <Route exact path="/rentals">
+                        <Rentals rentals={this.props.laptops} />
+                    </Route>
+                    <Route path="/rentals/:id" render={(routerProps) => {
+                    const rentalId = parseInt(routerProps.match.params.id)
+
+                    const rentalObj = this.props.rentals.find(rentalObj => rentalObj.id === rentalId)
+
+                    if (rentalObj) {
+                        return (<Rental
+                                    key={rentalObj.id}
+                                    id={rentalObj.id}
+                                    requestDate={rentalObj.request_date}
+                                    name={rentalObj.name}
+                                    email={rentalObj.email}
+                        />
+                    )
+                        } else {
+                        return <div>Loading...</div>
+                        }
+                        } }/>
                 </Switch>
-            </div>
-        )
-    }
+
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
     return {
-        rentals: state.rentals.rentals
+        rentals: state.rentals
     }
 }
 

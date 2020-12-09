@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import Laptop from './components/laptop/Laptop'
-import Laptops from './components/laptop/Laptops'
 import LaptopInput from './components/laptop/LaptopInput'
 import LaptopsContainer from './containers/LaptopsContainer';
 import { connect } from 'react-redux'
@@ -21,9 +20,7 @@ class App extends Component {
     } else {
       return (
               <div>
-                {/* <LaptopsContainer laptops={this.props.laptops} /> */}
-                {/* <Laptops laptops={this.props.laptops} /> */}
-                {/* <Laptop laptops={this.props.laptops} /> */}
+                <Laptop laptops={this.props.laptops} />
               </div>
       )
     }
@@ -41,12 +38,28 @@ class App extends Component {
                 {this.Loading()}
 
             <Switch>
-                <Route exact path="/" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
-                <Route exact path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
-                <Route exact path="/laptops" render={(routerProps) => <Laptops {...routerProps} laptops={this.props.laptops} />}/>
-                <Route path="/laptops/:id" render={(routerProps) => <Laptop {...routerProps} laptops={this.props.laptops} />}/>
-            </Switch>
+                <Route path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
+                <Route exact path="/laptops">
+                  <LaptopsContainer laptops={this.props.laptops} />
+                </Route>
+                <Route path="/laptops/:id" render={(routerProps) => {
+                  const laptopId = parseInt(routerProps.match.params.id)
 
+                  const laptopObj = this.props.laptops.find(laptop => laptop.id === laptopId)
+
+                  if (laptopObj) {
+                    return (<Laptop
+                                key={laptopObj.id}
+                                id={laptopObj.id}
+                                name={laptopObj.name}
+                                specs={laptopObj.specs}
+                    />
+                  )
+                    } else {
+                      return <div>Loading...</div>
+                    }
+                     } }/>
+            </Switch>
       </div>
     );
   }
@@ -54,8 +67,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    laptops: state.laptops.laptops
+    laptops: state.laptops
   }
 }
+
 
 export default connect(mapStateToProps, {getLaptops})(App)
