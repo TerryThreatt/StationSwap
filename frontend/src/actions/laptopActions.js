@@ -5,29 +5,27 @@ export const getLaptops = () => {
         return fetch('http://localhost:3000/laptops')
         .then(res => res.json())
         .then(response => {
-            dispatch({type: 'GET_LAPTOPS', laptops: response})
+            dispatch({type: 'GET_LAPTOPS', laptops: response.laptops})
             }
         )
     }
 }
 
-export const addLaptop = (laptopForm, history) => {
-    const {name, specs} = laptopForm
-    const laptop = {laptop: {name: name, specs: specs}}
-
+export const addLaptop = (laptopInput, history) => {
     return (dispatch) => {
       return fetch('http://localhost:3000/laptops', {
             method: 'POST',
-            header: {
-                'Content-Type': 'application/json',
-                'Accepts': 'application/json'
+            headers: {
+              'Content-Type': 'application/json'
             },
-            body: JSON.stringify(laptop)
-    })
+            body: JSON.stringify(laptopInput)
+            }
+        )
         .then(res => res.json())
         .then(response => {
-            dispatch({ type: 'ADD_LAPTOP', laptop: response})
-            history.push(`/laptops/${response.id}`, response)
+            console.log(response)
+            dispatch({ type: 'ADD_LAPTOP', laptop: response.laptop })
+            history.push(`/laptops/${response.laptop.id}`)
         })
     }
 }

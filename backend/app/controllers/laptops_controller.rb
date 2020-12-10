@@ -1,5 +1,6 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: [:show, :update, :destroy]
+  # wrap_parameters :laptop, format: [:json], only: [:create]
 
   def index
     @laptops = Laptop.all
@@ -12,12 +13,12 @@ class LaptopsController < ApplicationController
   end
 
   def create
-    laptop = Laptop.new(laptop_params)
+    @laptop = Laptop.create(laptop_params)
 
     if @laptop.save
-      render json: laptop
+      render json: @laptop, status: 200
     else
-      render json: laptop.errors, status: :unprocessable_entity
+      render json: @laptop.errors, status: :unprocessable_entity
     end
   end
 
@@ -39,6 +40,6 @@ class LaptopsController < ApplicationController
     end
 
     def laptop_params
-      params.require(:laptop).permit(:name, :specs)
+     params.require(:laptop).permit(:name, :specs)
     end
 end

@@ -4,7 +4,7 @@ export const getRentals = () => {
             return fetch('http://localhost:3000/rentals')
             .then(res => res.json())
             .then(response => {
-                dispatch({ type: 'GET_RENTALS', rentals: response})
+                dispatch({ type: 'GET_RENTALS', rentals: response.rentals})
                 return response
             }
         )
@@ -17,15 +17,14 @@ export const getRentals = () => {
         return fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(rentalData)
         })
         .then(res => res.json())
         .then(response => {
-            dispatch({ type: 'ADD_RENTAL', rental: response})
-            browserHistory.push(`/laptops/${laptopId}/${response.id}`)
+            dispatch({ type: 'ADD_RENTAL', rental: response.rental})
+            browserHistory.push(`/laptops/${laptopId}/${response.rental.id}`, response)
             return response
         })
     }
