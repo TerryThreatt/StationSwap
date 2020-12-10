@@ -20,7 +20,7 @@ class App extends Component {
     } else {
       return (
               <div>
-                <Laptop laptops={this.props.laptops} />
+                <Laptop laptops={this.props.laptops}/>
               </div>
       )
     }

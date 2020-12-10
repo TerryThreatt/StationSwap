@@ -13,10 +13,10 @@ class LaptopsController < ApplicationController
   end
 
   def create
-    @laptop = Laptop.create(laptop_params)
+    @laptop = Laptop.new(laptop_params)
 
     if @laptop.save
-      render json: @laptop, status: 200
+      render json: @laptop, status: :created, location: @laptop
     else
       render json: @laptop.errors, status: :unprocessable_entity
     end

@@ -24,8 +24,7 @@ export const getRentals = () => {
         .then(res => res.json())
         .then(response => {
             dispatch({ type: 'ADD_RENTAL', rental: response.rental})
-            browserHistory.push(`/laptops/${laptopId}/${response.rental.id}`, response)
-            return response
+            // browserHistory.push(`/laptops/${laptopId}/${response.id}`, response)
         })
     }
 }
