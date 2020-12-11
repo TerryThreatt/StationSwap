@@ -1,6 +1,5 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: [:show, :update, :destroy]
-  # wrap_parameters :laptop, format: [:json], only: [:create]
 
   def index
     @laptops = Laptop.all

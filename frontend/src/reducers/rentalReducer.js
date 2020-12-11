@@ -5,14 +5,7 @@ export default function rentalReducer(state = {rentals: [], rental: {}, loading:
         case 'GET_RENTALS':
             return {...state, rentals: action.rentals, loading: true }
         case 'ADD_RENTAL':
-            let rental = state.rentals.map(rental => {
-                if(rental.id === action.rental.id){
-                    return action.rental
-                } else {
-                    return rental
-                }
-            })
-            return {...state, rentals: [...state.rentals, rental], rental: rental }
+            return {...state, rentals: [...state.rentals, action.rental], rental: {...action.laptop} }
         default:
         return state
     }

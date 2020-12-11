@@ -7,24 +7,32 @@ import LaptopsContainer from './containers/LaptopsContainer';
 import { connect } from 'react-redux'
 import { getLaptops } from './actions/laptopActions'
 import NavBar from './components/NavBar'
+import RentalInput from './components/rental/RentalInput';
+import RentalsContainer from './containers/RentalsContainer';
+import Rental from './components/rental/Rental'
+import { getRentals } from './actions/rentalActions'
+
+
 
 class App extends Component {
 
   componentDidMount(){
     this.props.getLaptops()
+    this.props.getRentals()
   }
 
-  Loading = () => {
-    if(this.props.loading) {
-      return <div>Loading...</div>
-    } else {
-      return (
-              <div>
-                <Laptop laptops={this.props.laptops}/>
-              </div>
-      )
-    }
-  }
+  // Loading = () => {
+  //   if(this.props.loading) {
+  //     return <div>Loading...</div>
+  //   } else {
+  //     return (
+  //             <div>
+  //               {/* <Laptop laptops={this.props}/> */}
+  //               <LaptopInput />
+  //             </div>
+  //     )
+  //   }
+  // }
 
   render() {
 
@@ -35,9 +43,10 @@ class App extends Component {
                 <h1>StationSwap</h1>
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
-                {this.Loading()}
+                {/* {this.Loading()} */}
 
             <Switch>
+                <Route exact path="/" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
                 <Route path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
                 <Route exact path="/laptops">
                   <LaptopsContainer laptops={this.props.laptops} />
@@ -59,6 +68,28 @@ class App extends Component {
                       return <div>Loading...</div>
                     }
                      } }/>
+                <Route exact path="/rentals">
+                  <RentalsContainer rentals={this.props.rentals} laptops={this.props.laptops}/>
+                </Route>
+                <Route path="/rentals/new" render={(routerProps) => <RentalInput {...routerProps} laptops={this.props.laptops} />}/>
+                <Route path="/rentals/:id" render={(routerProps) => {
+                    const rentalId = parseInt(routerProps.match.params.id)
+
+                    const rentalObj = this.props.rentals.find(rentalObj => rentalObj.id === rentalId)
+
+                    if (rentalObj) {
+                        return (<Rental
+                                    key={rentalObj.id}
+                                    id={rentalObj.id}
+                                    requestDate={rentalObj.request_date}
+                                    name={rentalObj.name}
+                                    email={rentalObj.email}
+                        />
+                    )
+                        } else {
+                        return <div>Loading...</div>
+                        }
+                        } }/>
             </Switch>
       </div>
     );
@@ -67,9 +98,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    laptops: state.laptops
+    laptops: state.laptops,
+    rentals: state.rentals
   }
 }
 
 
-export default connect(mapStateToProps, {getLaptops})(App)
+export default connect(mapStateToProps, {getLaptops, getRentals})(App)

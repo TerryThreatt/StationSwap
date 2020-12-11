@@ -1,9 +1,10 @@
 import React from 'react'
-import LaptopInput from '../components/laptop/LaptopInput'
 import Laptops from '../components/laptop/Laptops'
 import Laptop from '../components/laptop/Laptop'
 
 const LaptopsContainer = (props) => {
+
+        <Laptops laptops={props.laptops.laptops} />
 
         return (
 
@@ -20,9 +21,7 @@ const LaptopsContainer = (props) => {
                     )
                 })
 
-                    }
-                <Laptops laptops={props.Laptops} />
-                <LaptopInput laptops={props.laptops} />
+                }
 
             </div>
         )

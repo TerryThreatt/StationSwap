@@ -25,7 +25,7 @@ export const addLaptop = (laptopInput, history) => {
         .then(response => {
             console.log(response)
             dispatch({ type: 'ADD_LAPTOP', laptop: response.laptop })
-            history.push(`/laptops/${response.id}`)
+            // history.push(`/laptops/${response.id}`, null)
         })
     }
 }

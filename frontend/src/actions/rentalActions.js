@@ -11,20 +11,21 @@ export const getRentals = () => {
     }
 }
 
-    export const addRental = (rentalInfo, laptopId, browserHistory) => {
-        const rentalData = {rental: rentalInfo}
+    export const addRental = (rentalInfo, history) => {
         return (dispatch) => {
-        return fetch(`http://localhost:3000/laptops/${laptopId}/rentals`, {
+        return fetch(`http://localhost:3000/rentals`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(rentalData)
-        })
+            body: JSON.stringify(rentalInfo)
+            }
+        )
         .then(res => res.json())
         .then(response => {
+            console.log(rentalInfo)
             dispatch({ type: 'ADD_RENTAL', rental: response.rental})
-            // browserHistory.push(`/laptops/${laptopId}/${response.id}`, response)
+            // history.push(`/rentals/${response.id}`, null)
         })
     }
 }
