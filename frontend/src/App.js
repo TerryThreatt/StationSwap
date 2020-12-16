@@ -21,18 +21,6 @@ class App extends Component {
     this.props.getRentals()
   }
 
-  // Loading = () => {
-  //   if(this.props.loading) {
-  //     return <div>Loading...</div>
-  //   } else {
-  //     return (
-  //             <div>
-  //               {/* <Laptop laptops={this.props}/> */}
-  //               <LaptopInput />
-  //             </div>
-  //     )
-  //   }
-  // }
 
   render() {
 
@@ -43,7 +31,6 @@ class App extends Component {
                 <h1>StationSwap</h1>
                 <h3>Laptop Rental App for Remote Teams</h3>
                 <br/>
-                {/* {this.Loading()} */}
 
             <Switch>
                 <Route exact path="/" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
@@ -69,7 +56,7 @@ class App extends Component {
                     }
                      } }/>
                 <Route exact path="/rentals">
-                  <RentalsContainer rentals={this.props.rentals} laptops={this.props.laptops}/>
+                  <RentalsContainer rentals={this.props.rentals} laptops={this.props.laptops} likeCounter={this.props.laptops}/>
                 </Route>
                 <Route path="/rentals/new" render={(routerProps) => <RentalInput {...routerProps} laptops={this.props.laptops} />}/>
                 <Route path="/rentals/:id" render={(routerProps) => {

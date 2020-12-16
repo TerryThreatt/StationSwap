@@ -11,7 +11,7 @@ export const getLaptops = () => {
     }
 }
 
-export const addLaptop = (laptopInput, history) => {
+export const addLaptop = (laptopInput) => {
     return (dispatch) => {
       return fetch('http://localhost:3000/laptops', {
             method: 'POST',
@@ -25,7 +25,6 @@ export const addLaptop = (laptopInput, history) => {
         .then(response => {
             console.log(response)
             dispatch({ type: 'ADD_LAPTOP', laptop: response.laptop })
-            // history.push(`/laptops/${response.id}`, null)
         })
     }
 }

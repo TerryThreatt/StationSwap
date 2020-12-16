@@ -11,7 +11,7 @@ export const getRentals = () => {
     }
 }
 
-    export const addRental = (rentalInfo, history) => {
+    export const addRental = (rentalInfo) => {
         return (dispatch) => {
         return fetch(`http://localhost:3000/rentals`, {
             method: 'POST',
@@ -25,7 +25,6 @@ export const getRentals = () => {
         .then(response => {
             console.log(rentalInfo)
             dispatch({ type: 'ADD_RENTAL', rental: response.rental})
-            // history.push(`/rentals/${response.id}`, null)
         })
     }
 }

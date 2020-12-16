@@ -16,7 +16,7 @@ class LaptopInput extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addLaptop(this.state, this.props.history)
+        this.props.addLaptop(this.state)
         this.setState({
             name: '',
             specs: ''
