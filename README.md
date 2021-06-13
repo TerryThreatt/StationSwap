@@ -1,75 +1,77 @@
 # StationSwap
 
-StationSwap is a laptop rental app that allows you to add new laptops and new laptop rentals. This project was setup by created a new Rails API on the backend and serving data up to a React-Redux frontend. 
+StationSwap is a laptop rental app that allows you to add new laptops and new laptop rentals. This project was setup by created a new Rails API on the backend and serving data up to a React-Redux frontend.
+
+[Live App](https://stationswap-app.herokuapp.com/)
 
 ![StationSwap](frontend/StationSwap.png)
 
 ### Getting Started
 
-Here is a step-by-step guide to get the project started. 
+Here is a step-by-step guide to get the project started.
 
 clone the project:
 ```
 $ git clone 'git@github.com:TerryThreatt/stationswap.git'
 ```
 
-navigate to the backend: 
+navigate to the backend:
 
 ```
 $ cd backend
 ```
 
-load project dependencies: 
+load project dependencies:
 
 ```
-$ bundle install 
+$ bundle install
 ```
 
-create database: 
+create database:
 
 ```
 $ rake db:create
 ```
 
-migrate tables: 
+migrate tables:
 
 ```
 $ rake db:migrate
 ```
 
-start with some laptop seed data: 
+start with some laptop seed data:
 
 ```
-$ rake db:seed 
+$ rake db:seed
 ```
 
-start up a server: 
+start up a server:
 
 ```
 $ rails s
 ```
 
-get started with the frontend: 
+get started with the frontend:
 
 ```
-$ yarn start 
+$ yarn start
 ```
 
 
 ## Built With
-* [React](https://reactjs.org/) - Javascript Library 
-* [Redux](https://redux.js.org/) - Predictable State Container 
-* [Redux-Thunk](https://github.com/reduxjs/redux-thunk) - Asynchronous Redux middleware 
-* [React-Router](https://reactrouter.com/) - Client-Side Routing Library 
+* [React](https://reactjs.org/) - Javascript Library
+* [Redux](https://redux.js.org/) - Predictable State Container
+* [Redux-Thunk](https://github.com/reduxjs/redux-thunk) - Asynchronous Redux middleware
+* [React-Router](https://reactrouter.com/) - Client-Side Routing Library
 * [Rails](https://rubyonrails.org/) - The backend framework used
-* [PostgreSQL](https://www.postgresql.org/) - Database management system with ActiveRecord 
-* [Active Record Serializers](https://github.com/rails-api/active_model_serializers) - Data serializer with ActiveRecord 
-* [Boostrap](https://getbootstrap.com/) - Frontend CSS Library 
+* [PostgreSQL](https://www.postgresql.org/) - Database management system with ActiveRecord
+* [Active Record Serializers](https://github.com/rails-api/active_model_serializers) - Data serializer with ActiveRecord
+* [Boostrap](https://getbootstrap.com/) - Frontend CSS Library
 
 
 ## Versioning
 
-This is V1 for the laptop rentals rails api. 
+This is V1 for the laptop rentals rails api.
 
 
 ## License
