@@ -42,7 +42,7 @@ render() {
                 </div>
             </div>
         )
-}
+} 
 }
 
 export default Rental
