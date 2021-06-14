@@ -1,8 +1,10 @@
+const BACKEND_URL = 'https://stationswap-backend.herokuapp.com';
+
 
 export const getLaptops = () => {
     return (dispatch) => {
         dispatch({ type: 'GETTING_LAPTOPS'})
-        return fetch('http://localhost:3000/laptops')
+        return fetch(`${BACKEND_URL}/laptops`)
         .then(res => res.json())
         .then(response => {
             dispatch({type: 'GET_LAPTOPS', laptops: response.laptops})
@@ -13,7 +15,7 @@ export const getLaptops = () => {
 
 export const addLaptop = (laptopInput) => {
     return (dispatch) => {
-      return fetch('http://localhost:3000/laptops', {
+      return fetch(`${BACKEND_URL}/laptops`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
