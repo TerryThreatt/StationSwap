@@ -15,42 +15,6 @@ clone the project:
 $ git clone 'git@github.com:TerryThreatt/stationswap.git'
 ```
 
-navigate to the backend:
-
-```
-$ cd backend
-```
-
-load project dependencies:
-
-```
-$ bundle install
-```
-
-create database:
-
-```
-$ rake db:create
-```
-
-migrate tables:
-
-```
-$ rake db:migrate
-```
-
-start with some laptop seed data:
-
-```
-$ rake db:seed
-```
-
-start up a server:
-
-```
-$ rails s
-```
-
 get started with the frontend:
 
 ```
