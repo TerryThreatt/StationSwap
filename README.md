@@ -2,7 +2,7 @@
 
 StationSwap is a laptop rental app that allows you to add new laptops and new laptop rentals. This project was setup by created a new Rails API on the backend and serving data up to a React-Redux frontend.
 
-[Live App](https://terrythreatt.github.io/StationSwap/)
+[Live App](https://ecstatic-pasteur-c04207.netlify.app/)
 
 ![StationSwap](StationSwap.png)
 
