@@ -14,7 +14,6 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 const pages = [
-  { name: "Home", link: "/" },
   { name: "Laptops", link: "/laptops" },
   { name: "Rentals", link: "/rentals" },
   { name: "Add Rental", link: "/rentals/new" },
@@ -50,7 +49,9 @@ const NavBar = (props) => {
             component="div"
             sx={{ mr: 3, display: { xs: "none", md: "flex" } }}
           >
-            {props.title}
+                      <Link to={"/"} key={"home"} style={{ color: 'white', textDecoration: "none"}}>
+              {props.title}
+            </Link>
           </Typography>
 
           <Box
@@ -69,6 +70,8 @@ const NavBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
+
+            {/* Mobile */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -84,13 +87,15 @@ const NavBar = (props) => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
-                </MenuItem>
+                <Link to={page.link} key={page.name}>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -102,6 +107,8 @@ const NavBar = (props) => {
           >
             {props.title}
           </Typography>
+
+          {/* Desktop */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link to={page.link} key={page.name}>
@@ -116,6 +123,7 @@ const NavBar = (props) => {
             ))}
           </Box>
 
+          {/* Profile */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

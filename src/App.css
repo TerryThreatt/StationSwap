@@ -1,24 +1,26 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #253053;
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  opacity: 95%;
-}
-
-.App-link {
-  color: #253053;
+  margin: auto;
 }
 
 a {
-  color:'fff';
+  color: "#2b4570";
 }
 
+input {
+  width: 75%;
+  height: 25px;
+}
 
-nav-wrapper{
-  background-color: #253053;
+select {
+  width: 75%;
+  height: 25px;
+}
+
+.container {
+  margin: 50px 50px;
 }

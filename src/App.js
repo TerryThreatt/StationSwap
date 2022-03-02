@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { getLaptops } from './actions/laptopActions';
+import { getRentals } from './actions/rentalActions';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
-import Laptop from './components/laptop/Laptop'
-import LaptopInput from './components/laptop/LaptopInput'
-import LaptopsContainer from './containers/LaptopsContainer';
-import { connect } from 'react-redux'
-import { getLaptops } from './actions/laptopActions'
-import NavBar from './components/NavBar'
+import Laptop from './components/laptop/Laptop';
+import LaptopInput from './components/laptop/LaptopInput';
+import NavBar from './components/NavBar';
+import Rental from './components/rental/Rental';
 import RentalInput from './components/rental/RentalInput';
+import LaptopsContainer from './containers/LaptopsContainer';
 import RentalsContainer from './containers/RentalsContainer';
-import Rental from './components/rental/Rental'
-import { getRentals } from './actions/rentalActions'
-
 
 
 class App extends Component {
@@ -29,11 +28,11 @@ class App extends Component {
             <NavBar title="StationSwap" />
                 <br/>
                 <h1>StationSwap</h1>
-                <h3>Laptop Rental App for Remote Teams</h3>
+                <h3>Laptop Rentals for Remote Teams</h3>
                 <br/>
 
             <Switch>
-                <Route exact path="/" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
+          <Route exact path="/" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />} />
                 <Route path="/laptops/new" render={(routerProps) => <LaptopInput {...routerProps} laptops={this.props.laptops} />}/>
                 <Route exact path="/laptops">
                   <LaptopsContainer laptops={this.props.laptops} />
