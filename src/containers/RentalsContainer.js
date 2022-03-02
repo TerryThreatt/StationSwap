@@ -1,34 +1,32 @@
-import React from 'react'
-import Rentals from '../components/rental/Rentals'
-import Rental from '../components/rental/Rental'
+import Grid from "@mui/material/Grid";
+import React from "react";
+import Rental from "../components/rental/Rental";
+import Rentals from "../components/rental/Rentals";
 
 const RentalsContainer = (props) => {
+  <Rentals rentals={props.rentals.rentals} />;
 
-    <Rentals rentals={props.rentals.rentals} likesCounter={props.likesCounter}/>
+  return (
+    <div className="rentals">
+      <br />
+      <Grid container spacing={4} style={{textAlign: 'center'}}>
+        {props.rentals.rentals.map((rental) => {
+          return (
+            <Grid item xs={1} md={3} key={rental.id}>
+              <Rental
+                key={rental.id}
+                id={rental.id}
+                requestDate={rental.request_date}
+                name={rental.name}
+                email={rental.email}
+                laptop={rental.laptop.name}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </div>
+  );
+};
 
-    return (
-
-        <div className="rentals">
-            <br/>
-            {props.rentals.rentals.map(rental => {
-                return (
-                    <Rental
-                        key={rental.id}
-                        id={rental.id}
-                        requestDate={rental.request_date}
-                        name={rental.name}
-                        email={rental.email}
-                        laptop={rental.laptop.name}
-                        likesCounter={props.likesCounter}
-                    />
-                )
-            })
-
-                }
-
-        </div>
-    )
-}
-
-
-export default RentalsContainer
+export default RentalsContainer;

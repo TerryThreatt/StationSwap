@@ -1,31 +1,30 @@
-import React from 'react'
-import Laptops from '../components/laptop/Laptops'
-import Laptop from '../components/laptop/Laptop'
+import Grid from "@mui/material/Grid";
+import React from "react";
+import Laptop from "../components/laptop/Laptop";
+import Laptops from "../components/laptop/Laptops";
 
 const LaptopsContainer = (props) => {
+  <Laptops laptops={props.laptops.laptops} />;
 
-        <Laptops laptops={props.laptops.laptops} />
+  return (
+    <div className="laptops">
+      <br />
+      <Grid container spacing={4} style={{ textAlign: "center" }}>
+        {props.laptops.laptops.map((laptop) => {
+          return (
+            <Grid item xs={1} md={3} key={laptop.id}>
+              <Laptop
+                key={laptop.id}
+                id={laptop.id}
+                name={laptop.name}
+                specs={laptop.specs}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </div>
+  );
+};
 
-        return (
-
-            <div className="laptops">
-                <br/>
-                {props.laptops.laptops.map(laptop => {
-                    return (
-                        <Laptop
-                            key={laptop.id}
-                            id={laptop.id}
-                            name={laptop.name}
-                            specs={laptop.specs}
-                        />
-                    )
-                })
-
-                }
-
-            </div>
-        )
-    }
-
-
-export default LaptopsContainer
+export default LaptopsContainer;
