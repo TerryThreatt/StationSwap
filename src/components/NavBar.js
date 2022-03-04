@@ -49,7 +49,11 @@ const NavBar = (props) => {
             component="div"
             sx={{ mr: 3, display: { xs: "none", md: "flex" } }}
           >
-                      <Link to={"/"} key={"home"} style={{ color: 'white', textDecoration: "none"}}>
+            <Link
+              to={"/"}
+              key={"home"}
+              style={{ color: "white", textDecoration: "none" }}
+            >
               {props.title}
             </Link>
           </Typography>
@@ -105,7 +109,13 @@ const NavBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            {props.title}
+            <Link
+              to={"/"}
+              key={"home"}
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              {props.title}
+            </Link>
           </Typography>
 
           {/* Desktop */}
