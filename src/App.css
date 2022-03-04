@@ -21,6 +21,25 @@ select {
   height: 25px;
 }
 
-.container {
-  margin: 50px 50px;
+.landing-page {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.landing-text {
+  width: 50%;
+  text-align: left;
+}
+
+.user-input {
+}
+
+.login {
+}
+
+.signup {
 }
