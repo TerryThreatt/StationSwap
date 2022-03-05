@@ -126,6 +126,7 @@ const NavBar = (props) => {
                   key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
+                  className="button"
                 >
                   {page.name}
                 </Button>

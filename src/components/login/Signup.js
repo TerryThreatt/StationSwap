@@ -50,13 +50,7 @@ class Signup extends Component {
               <br />
               <button
                 type="submit"
-                style={{
-                  backgroundColor: "#2b4570",
-                  color: "#fff",
-                  borderRadius: "10%",
-                  height: "35px",
-                  width: "67.7px",
-                }}
+                className="button"
               >
                 Sign-In
               </button>
