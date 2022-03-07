@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Laptop = (props) => {
   return (
-    <div>
+    <div className="laptop">
       <Card
         sx={{
           width: 350,
@@ -29,7 +29,7 @@ const Laptop = (props) => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions disableSpacing={true}>
+        <CardActions disableSpacing={true} className="laptop-button">
           <Link to="/rentals/new">
             <Button
               sx={{

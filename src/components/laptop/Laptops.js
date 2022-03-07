@@ -6,13 +6,13 @@ import Laptop from "./Laptop";
 
 const Laptops = (props) => {
   return (
-    <div>
+    <div className="laptops">
       {console.log(props)}
       <Container>
-        <Grid container spacing={4}>
+        <Grid container spacing={1}>
           {props.laptops &&
             props.laptops.map((laptop) => (
-                <Grid item xs={1} md={3}>
+                <Grid item xs={1} md={1}>
                   <Laptop
                     key={laptop.id}
                     id={laptop.id}

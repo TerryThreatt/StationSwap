@@ -1,4 +1,3 @@
-import Paper from "@mui/material/Paper";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addRental } from "../../actions/rentalActions";
@@ -39,61 +38,53 @@ class RentalInput extends Component {
       (laptops) => laptops.rentals.length === 0
     );
     return (
-      <div>
-        <Paper sx={{ height: 400, width: 300 }}>
+      <form onSubmit={this.handleSubmit}>
+        <br />
+        <h5>Add Rental</h5>
+        <br />
+        <div>
+          <div>
+            <label style={{ textAlign: "left" }}>Laptop: </label> <br />
+            <select
+              onChange={this.handleLaptopChange}
+              laptop_id={this.state.laptop_id}
+            >
+              <option>Select Laptop</option>
+              {rentable.map((laptop) => (
+                <option key={laptop.id} value={laptop.id}>
+                  {laptop.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <br />
-          <h5>Add Rental</h5>
+          <div>
+            <label>Name: </label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
           <br />
-
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <div>
-                <label>Laptop: </label> <br />
-                <select
-                  onChange={this.handleLaptopChange}
-                  laptop_id={this.state.laptop_id}
-                >
-                  <option>Select Laptop</option>
-                  {rentable.map((laptop) => (
-                    <option key={laptop.id} value={laptop.id}>
-                      {laptop.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <br />
-              <div>
-                <label>Name: </label>
-                <br />
-                <input
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <div>
-                <label>Email: </label>
-                <br />
-                <input
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <button
-                type="submit"
-                className="button"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </Paper>
-      </div>
+          <div>
+            <label>Email: </label>
+            <br />
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <br />
+          <button type="submit" className="button">
+            Submit
+          </button>
+        </div>
+      </form>
     );
   }
 }
