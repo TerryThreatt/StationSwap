@@ -69,7 +69,6 @@ class App extends Component {
             <RentalsContainer
               rentals={this.props.rentals}
               laptops={this.props.laptops}
-              likeCounter={this.props.laptops}
             />
           </Route>
           <Route

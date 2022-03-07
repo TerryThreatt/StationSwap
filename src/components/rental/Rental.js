@@ -27,7 +27,7 @@ class Rental extends Component {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions className="rental-button">
               <Link to={`/rentals/${this.props.id}`}>
                 <Button
                   sx={{
