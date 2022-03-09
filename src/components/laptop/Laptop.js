@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-const Laptop = (props) => {
+function Laptop(props){
   return (
     <div className="laptop">
       <Card

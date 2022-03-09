@@ -2,11 +2,10 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-class Rental extends Component {
-  render() {
+function Rental(props) {
     return (
       <div>
         <div>
@@ -14,21 +13,21 @@ class Rental extends Component {
             <CardActionArea>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {this.props.laptop}
+                  {props.laptop}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {this.props.name}
+                  {props.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {this.props.email}
+                  {props.email}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {this.props.requestDate}
+                  {props.requestDate}
                 </Typography>
               </CardContent>
             </CardActionArea>
             <CardActions className="rental-button">
-              <Link to={`/rentals/${this.props.id}`}>
+              <Link to={`/rentals/${props.id}`}>
                 <Button
                   sx={{
                     backgroundColor: "#2b4570",
@@ -49,6 +48,5 @@ class Rental extends Component {
       </div>
     );
   }
-}
 
 export default Rental;

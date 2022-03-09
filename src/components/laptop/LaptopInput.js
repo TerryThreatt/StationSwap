@@ -1,37 +1,25 @@
 import Paper from "@mui/material/Paper";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addLaptop } from "../../actions/laptopActions";
 
-class LaptopInput extends Component {
-  state = {
-    name: "",
-    specs: "",
-  };
+function LaptopInput(props) {
+  const [name, setName] = useState("");
+  const [specs, setSpecs] = useState("");
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addLaptop(this.state);
-    this.setState({
-      name: "",
-      specs: "",
-    });
+    addLaptop({ name, specs });
+    setName("");
+    setSpecs("");
   };
-
-  render() {
     return (
       <div>
         <Paper sx={{ height: 300, width: 300 }}>
           <br />
           <h5>Add Laptop</h5>
           <br />
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div>
               <div>
                 <label>Name: </label>
@@ -39,8 +27,8 @@ class LaptopInput extends Component {
                 <input
                   type="text"
                   name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
@@ -49,8 +37,8 @@ class LaptopInput extends Component {
                 <input
                   type="text"
                   name="specs"
-                  value={this.state.specs}
-                  onChange={this.handleChange}
+                  value={specs}
+                  onChange={(e) => setSpecs(e.target.value)}
                 />
               </div>
               <br />
@@ -65,7 +53,6 @@ class LaptopInput extends Component {
         </Paper>
       </div>
     );
-  }
 }
 
 export default connect(null, { addLaptop })(LaptopInput);

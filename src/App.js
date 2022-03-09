@@ -116,7 +116,9 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     laptops: state.laptops,
-    rentals: state.rentals
+    rentals: state.rentals,
+    login: state.login,
+    signup: state.signup
   }
 }
 
