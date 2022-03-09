@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Laptop from "./Laptop";
 
-const Laptops = (props) => {
+function Laptops(props){
   return (
     <div className="laptops">
       {console.log(props)}

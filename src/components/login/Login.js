@@ -1,41 +1,29 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addLaptop } from "../../actions/laptopActions"; // change to login
+import { login } from "../../actions/loginActions";
 
-class Login extends Component {
-  state = {
-    email: "",
-    password: "",
-  };
+function Login(){
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    //   change to login
-    this.props.addLaptop(this.state);
-    this.setState({
-      email: "",
-      password: "",
-    });
+    login({ email, password });
+    setEmail("");
+    setPassword("");
   };
 
-  render() {
     return (
-          <form onSubmit={this.handleSubmit} className="login-form">
+          <form onSubmit={(e) => handleSubmit(e)} className="login-form">
             <div className="login-input">
               <div className="login-input-text">
                 <div>
                   <input
                     type="text"
                     name="email"
-                    value={this.state.email}
+                    value={email}
                     placeholder="Email"
-                    onChange={this.handleChange}
+                    onChange={(e) => setEmail(e.target.value)}
                     style={{ backgroundColor: "#EDEFF1", borderRadius: "4px"}}
                   />
                 </div>
@@ -44,9 +32,9 @@ class Login extends Component {
                   <input
                     type="text"
                     name="password"
-                    value={this.state.password}
+                    value={password}
                     placeholder="Password"
-                    onChange={this.handleChange}
+                    onChange={(e) => setPassword(e.target.value)}
                     style={{ backgroundColor: "#EDEFF1", borderRadius: "4px" }}
                   />
                 </div>
@@ -62,6 +50,5 @@ class Login extends Component {
           </form>
     );
   }
-}
 
-export default connect(null, { addLaptop })(Login); // change to login
+export default connect(null, { login })(Login);

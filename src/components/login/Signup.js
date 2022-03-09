@@ -1,50 +1,38 @@
 import Paper from "@mui/material/Paper";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addLaptop } from "../../actions/laptopActions"; // change to login
+import { signup } from "../../actions/loginActions"; // change to login
 
-class Signup extends Component {
-  state = {
-    email: "",
-    password: "",
-  };
+function Signup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    //   change to login
-    this.props.addLaptop(this.state);
-    this.setState({
-      email: "",
-      password: "",
-    });
+    signup({ email, password });
+    setEmail("");
+    setPassword("");
   };
 
-  render() {
     return (
       <div>
         <Paper sx={{ height: 300, width: 300 }}>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div>
               <div>
                 <input
                   type="text"
                   name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </div>
               <div>
                 <input
                   type="text"
                   name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </div>
               <br />
@@ -52,7 +40,7 @@ class Signup extends Component {
                 type="submit"
                 className="button"
               >
-                Sign-In
+                Sign-Up
               </button>
             </div>
           </form>
@@ -60,6 +48,5 @@ class Signup extends Component {
       </div>
     );
   }
-}
 
-export default connect(null, { addLaptop })(Signup); // change to login
+export default connect(null, { signup })(Signup);

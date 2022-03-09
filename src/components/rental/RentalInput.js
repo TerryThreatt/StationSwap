@@ -1,92 +1,75 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addRental } from "../../actions/rentalActions";
 
-class RentalInput extends Component {
-  state = {
-    laptop_id: "",
-    request_date: "",
-    name: "",
-    email: "",
-  };
+function RentalInput(props) {
+  const [laptopId, setLaptopId] = useState("");
+  const [requestDate, setRequestDate] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleLaptopChange = (e) => {
-    this.setState({
-      laptop_id: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addRental(this.state, this.props.history);
-    this.setState({
-      laptop_id: "",
-      request_date: "",
-      name: "",
-      email: "",
-    });
+    addRental({ laptopId, requestDate, name, email }, props.history);
+    setLaptopId("");
+    setRequestDate("");
+    setName("");
+    setEmail("");
   };
 
-  render() {
-    const rentable = this.props.laptops.laptops.filter(
-      (laptops) => laptops.rentals.length === 0
-    );
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <br />
-        <h5>Add Rental</h5>
+  const rentable = props.laptops.laptops.filter(
+    (laptops) => laptops.rentals.length === 0
+  );
+
+  return (
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <br />
+      <h5>Add Rental</h5>
+      <br />
+      <div>
+        <div>
+          <label style={{ textAlign: "left" }}>Laptop: </label> <br />
+          <select
+            onChange={(e) => setLaptopId(e.target.value)}
+            laptopId={laptopId}
+          >
+            <option>Select Laptop</option>
+            {rentable.map((laptop) => (
+              <option key={laptop.id} value={laptop.id}>
+                {laptop.name}
+              </option>
+            ))}
+          </select>
+        </div>
         <br />
         <div>
-          <div>
-            <label style={{ textAlign: "left" }}>Laptop: </label> <br />
-            <select
-              onChange={this.handleLaptopChange}
-              laptop_id={this.state.laptop_id}
-            >
-              <option>Select Laptop</option>
-              {rentable.map((laptop) => (
-                <option key={laptop.id} value={laptop.id}>
-                  {laptop.name}
-                </option>
-              ))}
-            </select>
-          </div>
+          <label>Name: </label>
           <br />
-          <div>
-            <label>Name: </label>
-            <br />
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </div>
-          <br />
-          <div>
-            <label>Email: </label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-          <br />
-          <button type="submit" className="button">
-            Submit
-          </button>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-      </form>
-    );
-  }
+        <br />
+        <div>
+          <label>Email: </label>
+          <br />
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <br />
+        <button type="submit" className="button">
+          Submit
+        </button>
+      </div>
+    </form>
+  );
 }
 
 export default connect(null, { addRental })(RentalInput);
