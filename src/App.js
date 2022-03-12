@@ -13,6 +13,7 @@ import RentalInput from './components/rental/RentalInput';
 import LaptopsContainer from './containers/LaptopsContainer';
 import RentalsContainer from './containers/RentalsContainer';
 import Welcome from './pages/Welcome';
+import "dotenv/config";
 
 
 class App extends Component {
@@ -117,8 +118,6 @@ const mapStateToProps = state => {
   return {
     laptops: state.laptops,
     rentals: state.rentals,
-    login: state.login,
-    signup: state.signup
   }
 }
 
