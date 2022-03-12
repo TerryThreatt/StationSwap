@@ -1,12 +1,10 @@
-import { combineReducers } from "redux"
-import laptopReducer from './laptopReducer'
-import rentalReducer from './rentalReducer'
-import loginReducer from './loginReducer'
+import { combineReducers } from "redux";
+import laptopReducer from "./laptopReducer";
+import rentalReducer from "./rentalReducer";
 
 const rootReducer = combineReducers({
-    laptops: laptopReducer,
-    rentals: rentalReducer,
-    login: loginReducer
-})
+  laptops: laptopReducer,
+  rentals: rentalReducer,
+});
 
-export default rootReducer
+export default rootReducer;

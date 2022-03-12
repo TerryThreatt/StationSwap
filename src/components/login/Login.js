@@ -1,54 +1,26 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { login } from "../../actions/loginActions";
+import { useEffect, useState } from "react";
+import Account from "./Account";
+import Auth from "./Auth";
+import { supabase } from "./supabaseClient";
 
-function Login(){
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Login(){
+  const [session, setSession] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    login({ email, password });
-    setEmail("");
-    setPassword("");
-  };
+  useEffect(() => {
+    setSession(supabase.auth.session());
 
-    return (
-          <form onSubmit={(e) => handleSubmit(e)} className="login-form">
-            <div className="login-input">
-              <div className="login-input-text">
-                <div>
-                  <input
-                    type="text"
-                    name="email"
-                    value={email}
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={{ backgroundColor: "#EDEFF1", borderRadius: "4px"}}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    type="text"
-                    name="password"
-                    value={password}
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={{ backgroundColor: "#EDEFF1", borderRadius: "4px" }}
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="button"
-                style={{ marginTop: "30px" }}
-              >
-                Sign-In
-              </button>
-            </div>
-          </form>
-    );
-  }
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
-export default connect(null, { login })(Login);
+  return (
+    <div className="container" style={{ padding: "50px 0 100px 0" }}>
+      {!session ? (
+        <Auth />
+      ) : (
+        <Account key={session.user.id} session={session} />
+      )}
+    </div>
+  );
+};

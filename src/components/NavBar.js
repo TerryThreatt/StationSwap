@@ -12,13 +12,15 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "../components/login/supabaseClient";
+import Account from "./login/Account";
 
 const pages = [
   { name: "Laptops", link: "/laptops" },
   { name: "Rentals", link: "/rentals" },
   { name: "Add Rental", link: "/rentals/new" },
 ];
-const settings = ["Profile", "Logout"];
+// const settings = ["Profile", "Logout"];
 
 const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -138,7 +140,7 @@ const NavBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="S" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -157,11 +159,18 @@ const NavBar = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              <MenuItem key={"Account"} onClick={() => <Account />}>
+                  <Typography textAlign="center">{"Account"}</Typography>
+              </MenuItem>
+              <MenuItem key={"Logout"} onClick={() => supabase.auth.signOut()}>
+                <Typography textAlign="center">{"Logout"}</Typography>
+              </MenuItem>
+
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
         </Toolbar>
