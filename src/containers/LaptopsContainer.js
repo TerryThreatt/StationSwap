@@ -4,13 +4,13 @@ import Laptop from "../components/laptop/Laptop";
 import Laptops from "../components/laptop/Laptops";
 
 const LaptopsContainer = (props) => {
-  <Laptops laptops={props.laptops.laptops} />;
+  <Laptops laptops={props.laptops} />;
 
   return (
     <div className="laptops">
       <br />
       <Grid container spacing={4} style={{ textAlign: "center" }}>
-        {props.laptops.laptops.map((laptop) => {
+        {props.laptops.map((laptop) => {
           return (
             <Grid item xs={1} md={3} key={laptop.id}>
               <Laptop
