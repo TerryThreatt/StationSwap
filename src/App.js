@@ -30,19 +30,18 @@ export const App = (props) => {
     });
   }, []);
 
-  const { getLaptops, getRentals } = props;
-
-  console.log(props)
 
   useEffect(() => {
-    async function fetchData() {
-      const l = await getLaptops();
-      const r = await getRentals();
-      setLaptops(l);
-      setRentals(r);
-    }
     fetchData();
-  }, [getLaptops, getRentals]);
+  }, []);
+
+  async function fetchData() {
+    const l = await getLaptops();
+    const r = await getRentals();
+    setLaptops(l);
+    setRentals(r);
+    console.log(l, r);
+  }
 
   return (
     <div className="App">

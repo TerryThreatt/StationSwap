@@ -5,7 +5,7 @@ export const getLaptops = () => {
     return (dispatch) => {
         dispatch({ type: 'GETTING_LAPTOPS'})
         return fetch(`${BACKEND_URL}/laptops`)
-        .then(res => res.json())
+        .then(response => response.json())
         .then(response => {
             dispatch({type: 'GET_LAPTOPS', laptops: response.laptops})
             }
@@ -25,7 +25,6 @@ export const addLaptop = (laptopInput) => {
         )
         .then(res => res.json())
         .then(response => {
-            console.log(response)
             dispatch({ type: 'ADD_LAPTOP', laptop: response.laptop })
         })
     }
