@@ -32,6 +32,8 @@ export const App = (props) => {
 
   const { getLaptops, getRentals } = props;
 
+  console.log(props)
+
   useEffect(() => {
     async function fetchData() {
       const l = await getLaptops();
