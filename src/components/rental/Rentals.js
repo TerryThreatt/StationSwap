@@ -3,11 +3,13 @@ import React from "react";
 import Rental from "./Rental";
 
 const Rentals = (props) => {
+  const rentals = props.rentals;
+
   return (
     <div>
       <Grid container spacing={4}>
-        {props.rentals &&
-          props.rentals.map((rental) => (
+        {rentals &&
+          rentals.map((rental) => (
             <Grid item xs={1} md={3}>
               <Rental
                 key={rental.id}

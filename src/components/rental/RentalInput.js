@@ -17,9 +17,7 @@ function RentalInput(props) {
     setEmail("");
   };
 
-  const rentable = props.laptops.laptops.filter(
-    (laptops) => laptops.rentals.length === 0
-  );
+  const laptops = props.laptops.laptops;
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -31,10 +29,10 @@ function RentalInput(props) {
           <label style={{ textAlign: "left" }}>Laptop: </label> <br />
           <select
             onChange={(e) => setLaptopId(e.target.value)}
-            laptopId={laptopId}
+            laptopid={laptopId}
           >
             <option>Select Laptop</option>
-            {rentable.map((laptop) => (
+            {laptops && laptops.map((laptop) => (
               <option key={laptop.id} value={laptop.id}>
                 {laptop.name}
               </option>

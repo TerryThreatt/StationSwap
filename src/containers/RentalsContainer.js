@@ -4,13 +4,14 @@ import Rental from "../components/rental/Rental";
 import Rentals from "../components/rental/Rentals";
 
 const RentalsContainer = (props) => {
-  <Rentals rentals={props.rentals} />;
+  const rentals = props.rentals.rentals;
+  <Rentals rentals={rentals} />;
 
   return (
     <div className="rentals">
       <br />
       <Grid container spacing={4} style={{textAlign: 'center'}}>
-        {props.rentals.map((rental) => {
+        {rentals && rentals.map((rental) => {
           return (
             <Grid item xs={1} md={3} key={rental.id}>
               <Rental
