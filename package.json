@@ -27,9 +27,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "homepage": "https://terrythreatt.github.io/StationSwap",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "homepage": "https://stationswap.netlify.app/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -54,7 +52,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "gh-pages": "^3.2.0"
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
