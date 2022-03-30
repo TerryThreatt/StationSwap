@@ -6,7 +6,7 @@ import React from "react";
 
 function Rental(props) {
   return (
-    <div>
+    <div className="rental-card">
       <div>
         <Card sx={{ width: 350, height: 200 }}>
           <CardActionArea>

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Laptop(props) {
   return (
-    <div className="laptop">
+    <div className="laptop-card">
       <Card
         sx={{
           width: 350,

@@ -6,11 +6,11 @@ const Rentals = (props) => {
   const rentals = props.rentals;
 
   return (
-    <div>
-      <Grid container spacing={4}>
+    <div className="rental-cards">
+      <Grid container spacing={1}>
         {rentals &&
           rentals.map((rental) => (
-            <Grid item xs={1} md={3}>
+            <Grid item xs={1} md={1}>
               <Rental
                 key={rental.id}
                 id={rental.id}

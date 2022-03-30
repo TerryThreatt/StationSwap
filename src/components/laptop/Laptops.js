@@ -8,7 +8,7 @@ function Laptops(props) {
   const laptops = props.laptops;
 
   return (
-    <div className="laptops">
+    <div className="laptop-cards">
       <Container>
         <Grid container spacing={1}>
           {laptops &&
