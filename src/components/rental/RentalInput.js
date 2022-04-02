@@ -30,6 +30,7 @@ function RentalInput(props) {
           <select
             onChange={(e) => setLaptopId(e.target.value)}
             laptopid={laptopId}
+            value={laptopId}
           >
             <option>Select Laptop</option>
             {laptops && laptops.map((laptop) => (
